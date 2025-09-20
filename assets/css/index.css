@@ -122,22 +122,6 @@ section.position-relative .translate-middle {
     color: #aaa;
 }
 
-/* ========== HEADER ========== */
-header h6 {
-    color: #0056d2;
-    font-weight: 700;
-}
-
-.navbar-nav .nav-link {
-    font-weight: 500;
-    color: #333;
-    transition: color 0.3s;
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-    color: #0056d2;
-}
 
 /* ========== ICON NỔI ========== */
 .position-fixed a {
@@ -172,4 +156,449 @@ header h6 {
     .search-box .btn:last-child {
         margin-right: 0;
     }
+}
+
+
+/* ========== KHỐI CÁC CƠ SỞ DƯỚI THANH TÌM KIẾM ========== */
+.library-sections {
+  margin-top: 60px;     /* khoảng cách phía trên khối */
+  margin-bottom: 60px;  /* khoảng cách phía dưới khối */
+}
+
+.section-btn {
+  border: 2px solid #0056d2;   /* viền xanh */
+  color: #0056d2;              /* chữ xanh */
+  background: #fff;            /* nền trắng */
+  border-radius: 25px;         /* bo tròn */
+  padding: 8px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.section-btn:hover {
+  background: #0056d2;         /* nền xanh khi hover */
+  color: #fff;                 /* chữ trắng */
+  box-shadow: 0 4px 12px rgba(0, 86, 210, 0.3);
+}
+
+
+/* ========== CÁC THẺ LẬT BÊN DƯỚI ========== */
+/* Container chứa các thẻ */
+.library-cards .d-flex {
+  flex-wrap: nowrap;          /* Không cho xuống hàng */
+  justify-content: space-between;
+  overflow-x: auto;           /* Nếu màn nhỏ quá thì kéo ngang */
+  gap: 15px;
+  padding-bottom: 10px;
+}
+
+/* Thẻ lật hình chữ nhật */
+/* Container chứa các thẻ */
+.library-cards .d-flex {
+  flex-wrap: nowrap;          /* Tất cả nằm 1 hàng */
+  justify-content: space-between;
+  gap: 15px;
+  overflow-x: auto;           /* Nếu màn nhỏ thì cuộn ngang */
+  padding-bottom: 10px;
+}
+
+/* Thẻ lật */
+.flip-card {
+  width: 190px;     /* hình chữ nhật ngang */
+  height: 140px;
+  perspective: 1000px;
+  flex: 0 0 auto;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mặt trước */
+.flip-card-front {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.flip-card-front img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Mặt sau */
+.flip-card-back {
+  background: #0056d2;
+  color: #fff;
+  transform: rotateY(180deg);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+
+/* ====== Section Header ====== */
+.section-header {
+  border-bottom: 2px solid #e0e0e0; /* line dưới */
+  padding-bottom: 5px;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #0056d2;
+}
+
+.view-all {
+  font-size: 0.9rem;
+  color: #0056d2;
+  text-decoration: none;
+}
+.view-all:hover {
+  text-decoration: underline;
+}
+
+/* ====== Grid Sách ====== */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 cột chia đều */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Card chung */
+.book-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.book-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.book-meta {
+  padding: 8px;
+}
+.book-meta h6 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 5px;
+  color: #333;
+}
+.book-meta p {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Card lớn */
+.big-card {
+  grid-column: span 2;  /* chiếm 2 cột */
+  grid-row: span 2;     /* chiếm 2 hàng */
+}
+
+
+
+
+
+
+
+/* ====== Section Sách Mới ====== */
+/* ====== Section Sách Mới ====== */
+.book-section {
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+.book-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.book-section-header h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0056d2;
+}
+
+.book-section-header a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #0056d2;
+  font-weight: 500;
+}
+
+.book-section-header {
+  position: relative; /* cần để pseudo-element định vị tuyệt đối */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* ====== HEADER SECTION ====== */
+.book-section-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+/* Đường kẻ ngang chạy giữa */
+.book-section-header::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100px;    /* chỉnh để ngắn hai bên */
+  right: 120px;
+  height: 1px;
+  background-color: #000;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+/* Tiêu đề & nút nổi trên đường kẻ */
+.book-section-header h3,
+.book-section-header a {
+  position: relative;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.book-section-header h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0056d2;
+  padding: 0 12px;
+}
+
+/* Nút Xem tất cả */
+.book-section-header a {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  padding: 4px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.book-section-header {
+  margin-top: 80px;    /* khoảng cách phía trên */
+  margin-bottom: 60px; /* khoảng cách phía dưới */
+}
+
+
+
+
+
+.book-section-header a:hover {
+  background-color: #f3f3f3;
+  border-color: #999;
+}
+
+/* ====== GRID ====== */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+
+/* Sách lớn chiếm 2 cột 2 hàng */
+.book-item.big {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Bìa sách chung */
+.book-cover {
+  width: 100%;
+  aspect-ratio: 1 / 1.414;
+  border-radius: 6px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px;
+  background-size: cover;
+  background-blend-mode: multiply;
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+/* Vân giấy nhẹ */
+.book-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  opacity: 0.1;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.book-cover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.08);
+}
+
+/* Nội dung bìa sách */
+.book-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  z-index: 2;
+  color: #fff;
+}
+
+.book-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+  line-height: 1.3;
+}
+
+.book-author {
+  font-size: 0.85rem;
+  margin: 0 0 10px;
+  color: #e0e7ff;
+}
+
+/* Footer (logo + năm) */
+.book-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-logo {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #fff;
+  object-fit: contain;
+  padding: 3px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+}
+
+.book-year {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+/* ====== Sách lớn: phóng to chữ + logo và đặt footer sát đáy ====== */
+.book-item.big .book-title {
+  font-size: 1.5rem;
+}
+
+.book-item.big .book-author {
+  font-size: 1.25rem;
+}
+
+.book-item.big .book-logo {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+}
+
+.book-item.big .book-year {
+  font-size: 1.1rem;
+}
+
+.book-item.big .book-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 2;
+}
+
+/* ====== Nút xem thử ====== */
+.read-btn {
+  display: block;
+  margin: 16px auto 0;
+  padding: 10px 20px;
+  background: #fff;
+  color: #0041a8;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none; /* đảm bảo KHÔNG gạch chân */
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  position: relative;
+  z-index: 2;
+}
+
+.read-btn:hover {
+  background: #0041a8;
+  color: #fff;
+  transform: scale(1.05);
+  text-decoration: none; /* hover cũng không gạch chân */
+}
+
+/* Gradient màu đậm, hiện đại */
+.color-1 { background: linear-gradient(135deg, #021a40, #091019); }
+.color-2 { background: linear-gradient(135deg, #01579b, #e5ff73); }
+.color-3 { background: linear-gradient(135deg, #006064, #0097a7); }
+.color-4 { background: linear-gradient(135deg, #651650, #4527a0); }
+.color-5 { background: linear-gradient(135deg, #25006e, #00796b); }
+.color-6 { background: linear-gradient(135deg, #1a237e, #283593); }
+
+/* Responsive */
+@media (max-width: 992px) {
+  .book-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

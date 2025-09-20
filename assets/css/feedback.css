@@ -1,0 +1,85 @@
+/* ========== FORM GÓP Ý ========== */
+
+.feedback-form-wrapper {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 86, 210, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback-form-wrapper:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 86, 210, 0.2);
+}
+
+/* Tiêu đề */
+.feedback-form-wrapper h2 {
+  color: #0056d2;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Các ô nhập liệu */
+.feedback-form input,
+.feedback-form select,
+.feedback-form textarea {
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback-form input:focus,
+.feedback-form select:focus,
+.feedback-form textarea:focus {
+  border-color: #0056d2;
+  box-shadow: 0 0 6px rgba(0, 86, 210, 0.4);
+  outline: none;
+}
+
+/* Captcha + nút refresh */
+.captcha-row img {
+  height: 40px;
+  border-radius: 6px;
+}
+
+.refresh-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: #f3f7ff;
+  color: #0056d2;
+  transition: background 0.3s ease;
+}
+
+.refresh-btn:hover {
+  background: #e1ebff;
+}
+
+/* Nút gửi */
+.feedback-form .btn-primary {
+  background-color: #0056d2;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.feedback-form .btn-primary:hover {
+  background-color: #0041a8;
+  transform: scale(1.03);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .feedback-form-wrapper {
+    padding: 20px;
+  }
+}

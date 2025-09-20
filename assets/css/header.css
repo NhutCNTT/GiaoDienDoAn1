@@ -1,0 +1,144 @@
+
+
+/* ========== HEADER ========== */
+/* HEADER CSS */
+.logo-header {
+  height: 100px;   /* chỉnh chiều cao logo */
+  width: auto;    /* tự động giữ tỉ lệ */
+}
+
+/* Tiêu đề trường */
+header h6 {
+  font-size: 20px;              /* tăng kích thước chữ */
+  font-weight: 800;             /* chữ đậm hơn */
+  color: #0056d2;               /* giữ màu xanh chủ đạo */
+  text-transform: uppercase;    /* viết in hoa toàn bộ */
+  
+  text-decoration: underline;   /* thêm gạch chân */
+  text-decoration-color: #0056d2; /* gạch chân cùng màu với chữ */
+  text-decoration-thickness: 1.5px; /* độ dày gạch chân */
+  text-underline-offset: 5px;   /* khoảng cách giữa chữ và gạch */
+}
+
+header small {
+  font-size: 14px;   /* mặc định small ~12px, tăng lên cho dễ nhìn */
+  font-weight: 500;  /* chữ đậm hơn một chút */
+  color: #6c757d;    /* giữ màu xám nhạt (text-muted) */
+}
+
+/* Khối giờ hoạt động */
+.working-hours {
+  background: #0056d2;              /* xanh chủ đạo */
+  color: #fff;
+  padding: 10px 20px;
+  border-bottom-left-radius: 40px;  /* bo góc trái dưới */
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  position: absolute;   /* ép vị trí */
+  top: 0;               /* sát lên trên */
+  right: 0;             /* sát qua phải */
+  height: 120px;        /* cao bằng logo */
+box-shadow:
+  0 2px 6px rgba(0, 0, 0, 0.3),
+  0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Icon đồng hồ */
+.working-hours i {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.working-hours strong {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+
+/* Nút đăng nhập */
+.btn-login {
+  color: #0056d2;              /* chữ xanh */
+  font-weight: 600;            /* chữ đậm */
+  font-size: 1rem;
+  background: transparent;     /* nền trong suốt */
+  border: none;                /* bỏ viền mặc định */
+  transition: color 0.3s;
+}
+
+.btn-login i {
+  font-size: 1.5rem;           /* icon to */
+  color: #0056d2;              /* icon xanh */
+}
+
+.btn-login:hover {
+  color: #003c99;              /* xanh đậm hơn khi hover */
+}
+
+.btn-login:hover i {
+  color: #003c99;
+}
+
+
+/* Menu trong navbar */
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: #333;               /* mặc định xám đậm */
+  transition: color 0.3s;    /* mượt khi hover */
+}
+
+/* Khi hover hoặc link active */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #0056d2;     /* xanh chủ đạo */
+}
+
+/* Liên kết trong navbar */
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: #333;               /* mặc định xám đậm */
+  transition: color 0.3s;    /* mượt khi hover */
+  font-size: 0,65rem;         /* chữ to hơn */
+  padding: 0.75rem 1.2rem;   /* tăng khoảng cách trong link */
+  font-weight: 700;    /* chữ đậm */
+}
+/* Khoảng cách trên và dưới menu */
+.navbar-nav {
+  margin-top: 10px;     /* khoảng cách phía trên */
+  margin-bottom: 15px;  /* khoảng cách phía dưới */
+}
+
+
+/* Dịch chuyển cả nhóm link qua trái */
+.navbar-nav {
+  margin-left: 0px;  /* dịch chuyển toàn bộ menu qua trái */
+}
+/* Nếu muốn khoảng cách giữa các mục rộng hơn */
+.navbar-nav .nav-item {
+  margin-right: 20px;  /* 👈 khoảng cách giữa các link */
+}
+
+/* Hiệu ứng gạch chân khi hover hoặc active */
+.navbar-nav .nav-link {
+  position: relative;
+  padding-bottom: 6px;   /* tạo khoảng trống dưới chữ */
+}
+
+/* Gạch đỏ chỉ ở nửa bên phải */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;               /* bắt đầu từ bên phải */
+  width: 50%;             /* chỉ chiếm nửa độ rộng */
+  height: 3px;            /* độ dày gạch */
+  background-color: transparent; /* mặc định ẩn */
+  transition: background-color 0.3s, width 0.3s;
+}
+
+/* Khi hover hoặc active */
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  background-color: red;  /* màu gạch */
+}

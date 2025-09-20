@@ -4,65 +4,43 @@
     <meta charset="utf-8" />
     <title>Thư viện – Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <!-- Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <!-- CSS  -->
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+
+    <!-- CSS cho header -->
+    <link href="./assets/css/header.css" rel="stylesheet" />
+
+    <!-- CSS riêng cho trang index -->
     <link href="./assets/css/index.css" rel="stylesheet" />
   </head>
 
   <body>
-    <!-- Header -->
-    <header class="border-bottom">
-      <div
-        class="container d-flex justify-content-between align-items-center py-2"
-      >
-        <div class="d-flex align-items-center">
-          <img
-            src="assets/images/Logo_ctuet.png"
-            alt="Logo"
-            class="me-2"
-            style="height: 50px"
-          />
-          <div>
-            <h6 class="m-0 fw-bold">
-              TRƯỜNG ĐẠI HỌC KỸ THUẬT - CÔNG NGHỆ CẦN THƠ
-            </h6>
-            <small class="text-muted">Can Tho University Of Technology</small>
-          </div>
-        </div>
-        <div class="d-flex align-items-center">
-          <button class="btn btn-outline-secondary me-3">Đăng nhập</button>
-          <img src="flag-uk.png" alt="EN" style="height: 24px" />
-        </div>
-      </div>
-      <nav
-        class="navbar navbar-expand-lg navbar-light bg-white border-top sticky-top"
-      >
-        <div class="container">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Trang chủ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="introduce.html">Giới thiệu</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sản phẩm - Dịch vụ</a>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="#">Tìm kiếm</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Góp ý</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+    <!-- Nhúng header -->
+    <div id="header-placeholder"></div>
 
+    <script>
+      fetch("components/header.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("header-placeholder").innerHTML = data;
+        });
+    </script>
+
+    <!-- Phần nội dung chính của trang -->
     <!-- Hero Banner -->
     <section class="hero-banner position-relative">
       <!-- Ảnh banner -->
-      <img src="./assets/images/GiangVien.jpg" alt="Thư viện" class="w-100" />
+      <img src="./assets/images/BANNERTEST.JPG.png" alt="Thư viện" class="w-100" />
 
       <!-- Form tìm kiếm nằm bên trong ảnh -->
       <div class="search-box-wrapper">
@@ -70,10 +48,12 @@
           <input type="text" class="form-control" placeholder="Tìm kiếm..." />
           <button class="btn"><i class="bi bi-search"></i></button>
           <select class="form-select">
-            <option>Tìm nhanh</option>
+            <option>Tất cả</option>
             <option>Nhan đề</option>
             <option>Tác giả</option>
-            <option>Từ khóa</option>
+            <option>Năm xuất bản</option>
+            <option>Nhà xuất bản</option>
+            <option>Chỉ số phân loại</option>
           </select>
           <button class="btn"><i class="bi bi-sliders"></i></button>
         </form>
@@ -82,20 +62,666 @@
 
     <!-- Icon nổi -->
     <div class="position-fixed bottom-0 end-0 p-3 d-flex flex-column gap-2">
-      <a href="#" class="btn btn-danger rounded-circle"
-        ><i class="bi bi-telephone"></i
-      ></a>
-      <a href="#" class="btn btn-primary rounded-circle"
-        ><i class="bi bi-messenger"></i
-      ></a>
+      <a href="#" class="btn btn-danger rounded-circle">
+        <i class="bi bi-telephone"></i>
+      </a>
+      <a href="#" class="btn btn-primary rounded-circle">
+        <i class="bi bi-messenger"></i>
+      </a>
     </div>
+
+<!-- ==========KHỐI CÁC CƠ SỞ DƯỚI THANH TÌM KIẾM ==========  -->
+<div class="library-sections container text-center">
+  <div class="d-flex flex-wrap justify-content-center gap-3">
+    <button class="btn section-btn">Thư viện Cơ sở I - TP. Cần Thơ</button>
+    <button class="btn section-btn">Thư viện Cơ sở II - TP. Cần Thơ</button>
+    <button class="btn section-btn">Thư viện Cơ sở III - TP. Cần Thơ</button>
+  </div>
+</div>
+
+
+<!-- Các thẻ lật logo -->
+<!-- Các thẻ lật logo -->
+<div class="library-cards container my-5">
+  <div class="d-flex justify-content-between flex-wrap gap-3">
+<!-- Card 1 -->
+<a href="https://www.springernature.com/" target="_blank" class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Springer_Nature_logo.png" alt="Springer Nature" />
+
+    </div>
+    <div class="flip-card-back">
+      <p>Springer</p>
+    </div>
+  </div>
+</a>
+
+<!-- Card 2 -->
+<a href="https://www.elsevier.com/" target="_blank" class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Elsevier_logo.png" alt="Elsevier" />
+    </div>
+    <div class="flip-card-back">
+      <p>Elsevier</p>
+    </div>
+  </div>
+</a>
+
+<!-- Card 3 -->
+<a href="https://www.wiley.com/" target="_blank" class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Wiley_logo.png" alt="Wiley" />
+    </div>
+    <div class="flip-card-back">
+      <p>Wiley</p>
+    </div>
+  </div>
+</a>
+
+<!-- Card 4 -->
+<a href="https://www.emerald.com/" target="_blank" class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Emerald_Group_Publishing_logo.png" alt="Emerald" />
+    </div>
+    <div class="flip-card-back">
+      <p>Emerald</p>
+    </div>
+  </div>
+</a>
+
+<!-- Card 5 -->
+<a href="https://taylorandfrancis.com/" target="_blank" class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Taylor_and_Francis_logo.png" alt="Taylor & Francis" />
+    </div>
+    <div class="flip-card-back">
+      <p>Taylor & Francis</p>
+    </div>
+  </div>
+</a>
+
+<!-- Card 6 -->
+<a href="https://www.nature.com/" target="_blank" class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Nature_Research_logo.png" alt="Nature" />
+    </div>
+    <div class="flip-card-back">
+      <p>Nature</p>
+    </div>
+  </div>
+</a>
+  </div>
+</div>
+
+<!-- ==========KHỐI SÁCH MỚI BIÊN MỤC ==========  -->
+
+
+  <!-- ==========KHỐI SÁCH MỚI BIÊN MỤC========== -->
+  <div class="book-section container">
+    <!-- Header -->
+    <div class="book-section-header">
+      <h3>TÀI LIỆU MỚI BIÊN MỤC</h3>
+      <a href="#" class="view-all">Xem tất cả</a>
+    </div>
+
+    <!-- Grid -->
+    <div class="book-grid">
+      <!-- Sách lớn bên trái -->
+      <div class="book-item big">
+        <div class="book-cover color-1">
+          <div class="book-content">
+            <h4 class="book-title">Giáo trình nghiên cứu Hoa Kỳ cường quốc kinh tế</h4>
+            <p class="book-author">Lê Đình Tĩnh, Nguyễn Thái Yên Hương</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+</div>
+
+            <button class="read-btn">Xem thử</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Các sách nhỏ -->
+      <div class="book-item">
+        <div class="book-cover color-2">
+          <div class="book-content">
+            <h4 class="book-title">Developing Human Capital</h4>
+            <p class="book-author">Nguyen Thuy Duong</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-item">
+        <div class="book-cover color-3">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-4">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-5">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+           <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-6">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-1">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-2">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-3">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+           <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+<!-- ==========KHỐI TÀI LIỆU MƯỢN NHIỀU ========== -->
+  <div class="book-section container">
+    <!-- Header -->
+    <div class="book-section-header">
+      <h3>TÀI LIỆU MƯỢN NHIỀU</h3>
+      <a href="#" class="view-all">Xem tất cả</a>
+    </div>
+
+    <!-- Grid -->
+    <div class="book-grid">
+      <!-- Sách lớn bên trái -->
+      <div class="book-item big">
+        <div class="book-cover color-1">
+          <div class="book-content">
+            <h4 class="book-title">Giáo trình nghiên cứu Hoa Kỳ cường quốc kinh tế</h4>
+            <p class="book-author">Lê Đình Tĩnh, Nguyễn Thái Yên Hương</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+</div>
+
+            <button class="read-btn">Xem thử</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Các sách nhỏ -->
+      <div class="book-item">
+        <div class="book-cover color-2">
+          <div class="book-content">
+            <h4 class="book-title">Developing Human Capital</h4>
+            <p class="book-author">Nguyen Thuy Duong</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-item">
+        <div class="book-cover color-3">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-4">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-5">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+           <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-6">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-1">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-2">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-3">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+           <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+<!-- ==========KHỐI TÀI LIỆU SỐ MỚI BIÊN MỤC========== -->
+  <div class="book-section container">
+    <!-- Header -->
+    <div class="book-section-header">
+      <h3>TÀI LIỆU SỐ MỚI BIÊN MỤC</h3>
+      <a href="#" class="view-all">Xem tất cả</a>
+    </div>
+
+    <!-- Grid -->
+    <div class="book-grid">
+      <!-- Sách lớn bên trái -->
+      <div class="book-item big">
+        <div class="book-cover color-1">
+          <div class="book-content">
+            <h4 class="book-title">Giáo trình nghiên cứu Hoa Kỳ cường quốc kinh tế</h4>
+            <p class="book-author">Lê Đình Tĩnh, Nguyễn Thái Yên Hương</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+</div>
+
+            <button class="read-btn">Xem thử</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Các sách nhỏ -->
+      <div class="book-item">
+        <div class="book-cover color-2">
+          <div class="book-content">
+            <h4 class="book-title">Developing Human Capital</h4>
+            <p class="book-author">Nguyen Thuy Duong</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-item">
+        <div class="book-cover color-3">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-4">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-5">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+           <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-6">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-1">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-2">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-3">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+           <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+  <!-- ==========KHỐI TÀI LIỆU SỐ MƯỢN NHIỀU========== -->
+  <div class="book-section container">
+    <!-- Header -->
+    <div class="book-section-header">
+      <h3>TÀI LIỆU SỐ MƯỢN NHIỀU</h3>
+      <a href="#" class="view-all">Xem tất cả</a>
+    </div>
+
+    <!-- Grid -->
+    <div class="book-grid">
+      <!-- Sách lớn bên trái -->
+      <div class="book-item big">
+        <div class="book-cover color-1">
+          <div class="book-content">
+            <h4 class="book-title">Giáo trình nghiên cứu Hoa Kỳ cường quốc kinh tế</h4>
+            <p class="book-author">Lê Đình Tĩnh, Nguyễn Thái Yên Hương</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+</div>
+
+            <button class="read-btn">Xem thử</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Các sách nhỏ -->
+      <div class="book-item">
+        <div class="book-cover color-2">
+          <div class="book-content">
+            <h4 class="book-title">Developing Human Capital</h4>
+            <p class="book-author">Nguyen Thuy Duong</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-item">
+        <div class="book-cover color-3">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-4">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-5">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+           <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-6">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-1">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-2">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+            <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="book-item">
+        <div class="book-cover color-3">
+          <div class="book-content">
+            <h4 class="book-title">Ứng dụng trí tuệ nhân tạo</h4>
+            <p class="book-author">Phạm Minh Hồng</p>
+           <div class="book-footer">
+  <img class="book-logo" src="assets/images/Logo_ctuet.png" alt="Logo">
+  <span class="book-year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    />
   </body>
 </html>
