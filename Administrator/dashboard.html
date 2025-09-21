@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modernize Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f7fb;
+        }
+
+        /* Navbar */
+        .topbar {
+            background: #ffffff;
+            color: #fff;
+        }
+
+        .topbar .btn {
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: #fff;
+            border-right: 1px solid #e0e0e0;
+            min-height: 100vh;
+            position: fixed;
+            top: 56px;
+            /* trừ chiều cao navbar */
+            left: 0;
+            padding: 20px 0;
+        }
+
+        .sidebar h5 {
+            font-size: 1rem;
+            padding: 0 20px;
+            margin-bottom: 10px;
+            color: #6c757d;
+            text-transform: uppercase;
+        }
+
+        .sidebar .nav-link {
+            color: #333;
+            font-weight: 500;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar .nav-link:hover {
+            background: #f1f3f5;
+            color: #0d6efd;
+        }
+
+        .sidebar .badge {
+            font-size: 0.7rem;
+            margin-left: auto;
+        }
+
+        /* Content */
+        .content {
+            margin-left: 250px;
+            margin-top: 56px;
+            padding: 20px;
+        }
+
+        .card {
+            border-radius: 15px;
+            border: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .chart-placeholder {
+            height: 250px;
+            border-radius: 10px;
+            background: repeating-linear-gradient(to right,
+                    #e0e7ff,
+                    #e0e7ff 10px,
+                    #c7d2fe 10px,
+                    #c7d2fe 20px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Navbar -->
+    <nav class="navbar topbar fixed-top navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <img src="/assets/images/Logo_ctuet.png" alt="Logo" style="height: 50px">
+
+                <div>
+                    <h6 class="m-0 fw-bold" style="color:#0d6efd;">
+                        TRƯỜNG ĐẠI HỌC KỸ THUẬT - CÔNG NGHỆ CẦN THƠ
+                    </h6>
+                    <small class="text-muted">Can Tho University Of Technology</small>
+                </div>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <button class="btn btn-light btn-sm"> Đăng Nhập</button>
+                <button class="btn btn-primary btn-sm">Đăng Xuất</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul class="nav flex-column mb-3">
+            <li><a href="#" class="nav-link"><i class="bi bi-speedometer2"></i> Thống kê</a></li>
+            <li><a href="#" class="nav-link"><i class="bi bi-globe"></i> Thêm Dữ Liệu <span
+                        class="badge bg-primary">Pro</span></a></li>
+            <li><a href="#" class="nav-link"><i class="bi bi-cart"></i> Xem Sản Phẩm <span
+                        class="badge bg-primary">Pro</span></a></li>
+            <li><a href="#" class="nav-link"><i class="bi bi-files"></i> Cập Nhật Dữ liệu</a></li>
+        </ul>
+        <h5>Utilities</h5>
+        <ul class="nav flex-column">
+            <li><a href="#" class="nav-link"><i class="bi bi-ui-checks"></i> Autocomplete</a></li>
+            <li><a href="#" class="nav-link"><i class="bi bi-square"></i> Buttons</a></li>
+            <li><a href="#" class="nav-link"><i class="bi bi-check2-square"></i> Checkbox</a></li>
+            <li><a href="#" class="nav-link"><i class="bi bi-record-circle"></i> Radio</a></li>
+            <li><a href="#" class="nav-link"><i class="bi bi-table"></i> Tables</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="row g-4">
+            <!-- Sales Overview -->
+            <div class="col-lg-8">
+                <div class="card p-3">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5>Sales Overview</h5>
+                        <select class="form-select form-select-sm w-auto">
+                            <option>March 2025</option>
+                        </select>
+                    </div>
+                    <div class="chart-placeholder d-flex align-items-center justify-content-center text-muted">
+                        Chart Here
+                    </div>
+                </div>
+            </div>
+            <!-- Right Cards -->
+            <div class="col-lg-4">
+                <div class="card p-3 mb-4">
+                    <h6>Yearly Breakup</h6>
+                    <h3>$36,358</h3>
+                    <span class="text-success"><i class="bi bi-arrow-up"></i> +9% last year</span>
+                    <div class="chart-placeholder mt-3 d-flex align-items-center justify-content-center">
+                        Donut Chart
+                    </div>
+                </div>
+                <div class="card p-3">
+                    <h6>Monthly Earnings</h6>
+                    <h3>$6,820</h3>
+                    <span class="text-danger"><i class="bi bi-arrow-down"></i> -9% last year</span>
+                    <div class="chart-placeholder mt-3 d-flex align-items-center justify-content-center">
+                        Line Chart
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
