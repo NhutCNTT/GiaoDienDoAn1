@@ -160,9 +160,12 @@ section.position-relative .translate-middle {
 
 
 /* ========== KHỐI CÁC CƠ SỞ DƯỚI THANH TÌM KIẾM ========== */
+
+
+
 .library-sections {
-  margin-top: 60px;     /* khoảng cách phía trên khối */
-  margin-bottom: 60px;  /* khoảng cách phía dưới khối */
+  margin-top: 100px;     /* khoảng cách phía trên khối */
+  margin-bottom: 120px;  /* khoảng cách phía dưới khối */
 }
 
 .section-btn {
@@ -182,80 +185,76 @@ section.position-relative .translate-middle {
 }
 
 
-/* ========== CÁC THẺ LẬT BÊN DƯỚI ========== */
-/* Container chứa các thẻ */
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========== CÁC THẺ LOGO CƠ SỞ DỮ LIỆU ========== */
+
+/* Container giữ các logo */
 .library-cards .d-flex {
-  flex-wrap: nowrap;          /* Không cho xuống hàng */
-  justify-content: space-between;
-  overflow-x: auto;           /* Nếu màn nhỏ quá thì kéo ngang */
-  gap: 15px;
-  padding-bottom: 10px;
+  display: flex;                  /* Sắp xếp theo hàng ngang */
+  flex-wrap: nowrap;              /* Không cho xuống hàng */
+  gap: 20px;                      /* Khoảng cách đều giữa các logo */
+  overflow-x: auto;               /* Nếu màn nhỏ → có thể cuộn ngang */
+  padding: 0 20px 10px 0;         /* Chừa khoảng trống bên phải để logo cuối không bị sát mép */
+  justify-content: flex-start;    /* Căn các logo về bên trái */
+  scroll-behavior: smooth;        /* Cuộn mượt khi dùng thanh cuộn */
 }
 
-/* Thẻ lật hình chữ nhật */
-/* Container chứa các thẻ */
-.library-cards .d-flex {
-  flex-wrap: nowrap;          /* Tất cả nằm 1 hàng */
-  justify-content: space-between;
-  gap: 15px;
-  overflow-x: auto;           /* Nếu màn nhỏ thì cuộn ngang */
-  padding-bottom: 10px;
-}
-
-/* Thẻ lật */
+/* Khung chứa logo */
 .flip-card {
-  width: 190px;     /* hình chữ nhật ngang */
-  height: 140px;
-  perspective: 1000px;
-  flex: 0 0 auto;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-/* Front & Back */
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  backface-visibility: hidden;
+  width: 260px;                   /* 🔑 Chiều rộng cố định cho tất cả logo */
+  height: 200px;                  /* 🔑 Chiều cao cố định cho tất cả logo */
+  flex: 0 0 auto;                 /* Không co giãn khi container thay đổi */
+  background: transparent;        /* Nền trong suốt, không viền */
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center;            /* Căn logo giữa theo chiều dọc */
+  justify-content: center;        /* Căn logo giữa theo chiều ngang */
+  text-decoration: none;          /* Xóa gạch dưới của thẻ <a> */
+  transition: transform 0.25s ease;
 }
 
-/* Mặt trước */
-.flip-card-front {
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 10px;
+/* Hover: chỉ phóng to khung một chút */
+.flip-card:hover {
+  transform: scale(1.03);         /* Phóng nhẹ cả khung chứa */
 }
 
-.flip-card-front img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+/* Ảnh logo bên trong */
+.flip-card img {
+  width: 80%;                     /* 🔑 Logo chiếm 80% chiều ngang khung */
+  height: auto;                   /* Giữ tỉ lệ gốc, tránh méo */
+  max-height: 80%;                /* Không vượt quá 80% chiều cao khung */
+  object-fit: contain;            /* Co giãn nhưng không cắt ảnh */
+  transition: transform 0.25s ease; /* Làm mượt khi phóng to */
+  display: block;
 }
 
-/* Mặt sau */
-.flip-card-back {
-  background: #0056d2;
-  color: #fff;
-  transform: rotateY(180deg);
-  font-weight: 600;
-  font-size: 1rem;
+/* Hover: phóng to logo */
+.flip-card:hover img {
+  transform: scale(1.1);          /* 🔑 Logo phóng to thêm 10% khi hover */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ====== Section Header ====== */
@@ -421,7 +420,7 @@ section.position-relative .translate-middle {
 
 .book-section-header {
   margin-top: 80px;    /* khoảng cách phía trên */
-  margin-bottom: 60px; /* khoảng cách phía dưới */
+  margin-bottom: 100px; /* khoảng cách phía dưới */
 }
 
 

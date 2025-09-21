@@ -1,85 +1,56 @@
-/* ========== FORM GÓP Ý ========== */
-
+/* === Trang Góp Ý === */
+.contact-info-wrapper,
 .feedback-form-wrapper {
-  background: #fff;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 4px 15px rgba(0, 86, 210, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feedback-form-wrapper:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 86, 210, 0.2);
-}
-
-/* Tiêu đề */
-.feedback-form-wrapper h2 {
-  color: #0056d2;
-  font-weight: 700;
-  font-size: 1.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Các ô nhập liệu */
-.feedback-form input,
-.feedback-form select,
-.feedback-form textarea {
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 0.95rem;
-  padding: 10px 12px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feedback-form input:focus,
-.feedback-form select:focus,
-.feedback-form textarea:focus {
-  border-color: #0056d2;
-  box-shadow: 0 0 6px rgba(0, 86, 210, 0.4);
-  outline: none;
-}
-
-/* Captcha + nút refresh */
-.captcha-row img {
-  height: 40px;
-  border-radius: 6px;
-}
-
-.refresh-btn {
+  height: 100%; /* giúp 2 bên cao bằng nhau */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-  background: #f3f7ff;
-  color: #0056d2;
-  transition: background 0.3s ease;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 500px;
 }
 
-.refresh-btn:hover {
-  background: #e1ebff;
+.contact-info-wrapper:hover,
+.feedback-form-wrapper:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* === Màu sắc đồng bộ === */
+.contact-info-wrapper h3,
+.feedback-form-wrapper h2 {
+  color: #0056d2 !important;; /* màu xanh đồng bộ */
+  font-weight: 700;
 }
 
 /* Nút gửi */
-.feedback-form .btn-primary {
+.feedback-form-wrapper button.btn-primary {
   background-color: #0056d2;
-  border: none;
-  border-radius: 8px;
-  padding: 12px;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: background 0.3s ease, transform 0.2s ease;
+  border-color: #0056d2;
 }
 
-.feedback-form .btn-primary:hover {
-  background-color: #0041a8;
-  transform: scale(1.03);
+.feedback-form-wrapper button.btn-primary:hover {
+  background-color: #0044a5;
+  border-color: #0044a5;
+}
+
+.map-container {
+  flex-grow: 1;
+  display: flex;
+}
+
+.map-container iframe {
+  border-radius: 10px;
+  flex: 1;
+  min-height: 320px;
+}
+
+.feedback-form textarea {
+  resize: none;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .feedback-form-wrapper {
-    padding: 20px;
+  .contact-info-wrapper {
+    margin-bottom: 1.5rem;
   }
 }
