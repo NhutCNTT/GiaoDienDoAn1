@@ -26,32 +26,10 @@
   </head>
 
   <body>
-    <!-- Header -->
-    <div id="header-placeholder"></div>
+    <!-- Nhúng header -->
+     <div id="header-placeholder"></div>
+<script src="assets/js/active-menu.js"></script>
 
-    <script>
-      fetch("components/header.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.getElementById("header-placeholder").innerHTML = data;
-
-          // Xử lý set active menu
-          let currentPage = window.location.pathname.split("/").pop();
-          if (currentPage === "" || currentPage === "index.html") {
-            currentPage = "index.html"; // mặc định cho trang chủ
-          }
-
-          let menuLinks = document.querySelectorAll(".navbar-nav .nav-link");
-          menuLinks.forEach((link) => {
-            if (link.getAttribute("href") === currentPage) {
-              link.classList.add("active");
-            } else {
-              link.classList.remove("active");
-            }
-          });
-        })
-        .catch((err) => console.error("Không load được header:", err));
-    </script>
 
     <!-- Nội dung chính -->
 <main class="page-content container my-5">

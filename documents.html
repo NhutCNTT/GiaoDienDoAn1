@@ -29,35 +29,14 @@
 
    <!-- Nhúng header -->
 <div id="header-placeholder"></div>
-
-<script>
-  fetch("components/header.html")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("header-placeholder").innerHTML = data;
-
-      // === Gắn class 'active' theo trang hiện tại ===
-      const currentPage = window.location.pathname.split("/").pop() || "index.html";
-      document.querySelectorAll("#header-placeholder .navbar-nav .nav-link")
-        .forEach(link => {
-          if (link.getAttribute("href") === currentPage) {
-            link.classList.add("active");
-          } else {
-            link.classList.remove("active");
-          }
-        });
-    })
-    .catch(err => console.error("Không thể tải header:", err));
-</script>
-
-
-
-
+<script src="assets/js/active-menu.js"></script>
 
 
 
 
     <!-- Phần nội dung chính của trang -->
+
+
 
 
 

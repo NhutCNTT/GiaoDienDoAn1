@@ -18,7 +18,8 @@
     />
 
     <!-- CSS cho header -->
-    <link href="./assets/css/header.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+
 
     <!-- CSS riêng cho trang index -->
     <link href="./assets/css/index.css" rel="stylesheet" />
@@ -30,15 +31,9 @@
 
     
     <!-- Nhúng header -->
-    <div id="header-placeholder"></div>
+  <div id="header-placeholder"></div>
+<script src="assets/js/active-menu.js"></script>
 
-    <script>
-      fetch("components/header.html")
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById("header-placeholder").innerHTML = data;
-        });
-    </script>
 
 
 
