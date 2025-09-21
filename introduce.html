@@ -23,11 +23,27 @@
     <div id="header-placeholder"></div>
 
     <script>
-      fetch("components/header.html") // Nếu không thấy header, đổi thành "../components/header.html"
-        .then(res => res.text())
-        .then(data => {
+      fetch("components/header.html")
+        .then((res) => res.text())
+        .then((data) => {
           document.getElementById("header-placeholder").innerHTML = data;
-        });
+
+          // Xử lý set active menu
+          let currentPage = window.location.pathname.split("/").pop();
+          if (currentPage === "" || currentPage === "index.html") {
+            currentPage = "index.html"; // mặc định cho trang chủ
+          }
+
+          let menuLinks = document.querySelectorAll(".navbar-nav .nav-link");
+          menuLinks.forEach((link) => {
+            if (link.getAttribute("href") === currentPage) {
+              link.classList.add("active");
+            } else {
+              link.classList.remove("active");
+            }
+          });
+        })
+        .catch((err) => console.error("Không load được header:", err));
     </script>
 
     <!-- Phần nội dung chính của trang -->
@@ -310,6 +326,5 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
   </body>
 </html>
