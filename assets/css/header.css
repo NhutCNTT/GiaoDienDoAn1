@@ -160,33 +160,45 @@ header small {
 .navbar .dropdown-toggle i { color: #111; }  /* hoặc #000 */
 
 /* ==================== DROPDOWN MENU ==================== */
+/* ==================== DROPDOWN MENU ==================== */
+
+/* Nền và viền của menu */
 .dropdown-menu {
-  background-color: #2b4d86;
-  border: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  background-color: #ffffff;         /* nền trắng như ảnh */
+  border: 1px solid #ddd;           /* viền xám nhạt tách menu với nền */
+  border-radius: 0px;               /* bo góc */
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* đổ bóng giống ảnh */
   transform: translateY(10px);
   opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
+/* Hiển thị mượt khi mở */
 .dropdown-menu.show {
   transform: translateY(0);
   opacity: 1;
 }
 
+/* Mỗi item bên trong dropdown */
 .dropdown-item {
-  color: #fff;
-  font-weight: 500;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: #333;                      /* chữ đen xám đậm */
+  font-weight: 400;
+  padding: 4px 18px;
+  border-bottom: 1px solid #eee;    /* đường kẻ mảnh giữa các mục */
 }
 
+/* Bỏ đường kẻ mục cuối cùng */
 .dropdown-item:last-child {
   border-bottom: none;
 }
 
+/* Hiệu ứng hover: nền xanh nhạt + chữ xanh đậm */
 .dropdown-item:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #ffd700;
+  background-color: #0056d2; /* xanh nhạt highlight */
+  color: #ffffff;           /* xanh chủ đạo */
 }
+
 
 /* ==================== LUÔN HIỂN THỊ SCROLLBAR ==================== */
 html {
