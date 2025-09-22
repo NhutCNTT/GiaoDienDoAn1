@@ -1,0 +1,94 @@
+/* ========== FOOTER CHUNG ========== */
+.library-footer {
+  background-color: #2b4d86; /* Nền xanh đậm */
+  color: #fff;
+  padding: 40px 0; /* Khoảng cách trên/dưới */
+}
+
+/* ========== KHỐI BÊN TRÁI: LOGO + THÔNG TIN ========== */
+.footer-left {
+  max-width: 60%; /* chiếm tối đa 60% chiều rộng */
+}
+
+/* Hàng ngang: logo + tiêu đề */
+.footer-heading {
+  display: flex;
+  align-items: center; /* logo và chữ cùng hàng ngang */
+  margin-bottom: 15px;
+  gap: 15px; /* khoảng cách logo và chữ */
+}
+
+.footer-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover; /* logo cắt gọn, không méo */
+  border: 2px solid #fff; /* viền trắng nổi bật */
+  background-color: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0; /* không co nhỏ khi hẹp */
+}
+
+.footer-title h5 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.footer-title h6 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Thông tin trong footer */
+.footer-info p {
+  font-size: 0.95rem;
+  line-height: 1.8; /* tăng giãn dòng để dễ đọc */
+  margin-bottom: 8px;
+}
+
+.footer-info a {
+  color: #fff;
+  text-decoration: none;
+}
+.footer-info a:hover {
+  color: #ffd700;
+  text-decoration: underline;
+}
+
+/* ========== KHỐI BÊN PHẢI: THỐNG KÊ ========== */
+.footer-stats {
+  min-width: 220px;
+  margin-left: 20px; /* thu hẹp khoảng cách 2 cột (giảm so với mặc định) */
+}
+
+.footer-stats h5 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.footer-stats ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-stats li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+/* Responsive: khi màn hình nhỏ, cột phải xuống dưới */
+@media (max-width: 768px) {
+  .library-footer .container {
+    flex-direction: column;
+  }
+  .footer-stats {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
