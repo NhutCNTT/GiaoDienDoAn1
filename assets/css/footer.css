@@ -1,7 +1,7 @@
 .library-footer {
   /* Nền chính của footer */
-  background: #0d1b2a; /* Xanh đậm, cảm giác công nghệ hiện đại */
-  color: #cfd8dc;
+  background: #0b4b87; /* Xanh đậm, cảm giác công nghệ hiện đại */
+  color: #e3e8e7;
   padding: 60px 0 30px; /* Khoảng cách trên/dưới toàn bộ footer */
   font-family: "Roboto", sans-serif;
 }
@@ -21,9 +21,9 @@
 .footer-container h4 {
   margin: 0 0 25px;                   /* Khoảng cách dưới tiêu đề tạo không gian với nội dung */
   font-size: 1.3rem;
-  font-weight: 600;                   /* Chữ đậm vừa phải */
+  font-weight: bold;                   /* Chữ đậm vừa phải */
   letter-spacing: 0.5px;              /* Giãn chữ nhẹ, hiện đại */
-  color: #5eb6ff;                     /* Xanh blue chủ đạo */
+  color: #ffffff ;                    /* Xanh blue chủ đạo */
   text-transform: uppercase;          /* Toàn bộ chữ viết hoa cho đồng bộ */
 }
 
@@ -89,7 +89,7 @@
 .stat-item p {
   margin: 0;
   font-size: 0.85rem;
-  color: #aaa;
+  color: #e3e8e7;
 }
 
 /* ====== DÒNG DƯỚI CÙNG (BẢN QUYỀN + ĐIỀU HƯỚNG) ====== */
@@ -108,15 +108,15 @@
 }
 .footer-copy {
   font-size: 0.85rem;
-  color: #b0bec5;
+  color: #e3e8e7
 }
 .footer-nav a {
   margin-left: 15px;
   font-size: 0.9rem;
-  color: #cfd8dc;
+  color: #e3e8e7;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
 .footer-nav a:hover {
-  color: #2196f3; /* Hover đổi sang xanh chủ đạo */
+  color: #94cbff; /* Hover đổi sang xanh chủ đạo */
 }
