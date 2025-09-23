@@ -1,6 +1,6 @@
 /* ==================== LOGO VÀ TIÊU ĐỀ ==================== */
 .logo-header {
-  height: 100px; /* chiều cao logo */
+  height: 120px; /* chiều cao logo */
   width: auto;  /* giữ tỉ lệ ảnh */
 }
 
@@ -195,4 +195,162 @@ header small {
 /* ==================== LUÔN HIỂN THỊ SCROLLBAR ==================== */
 html {
   overflow-y: scroll;
+}
+
+/* ================================
+   USER AVATAR (Ảnh đại diện mặc định)
+   - Hình tròn, chữ cái đầu tên user
+   ================================ */
+
+
+/* ================================
+   AVATAR USER
+   ================================ */
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 20px;              /* bo nhẹ */
+  background: #85518c;             /* màu tím chủ đạo */
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+/* Điều chỉnh vị trí dropdown user */
+.user-dropdown.dropdown-menu {
+  margin-top: 15px;              /* đẩy xuống */
+  transform: translateX(50px);  /* dịch sang trái 20px */
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* ================================
+   DROPDOWN USER MENU
+   ================================ */
+.user-dropdown.dropdown-menu {
+  margin-top: 12px;                /* đẩy xuống dưới avatar */
+  min-width: 240px;
+  font-size: 14px;
+  padding: 0.5rem 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: #fff;
+}
+.user-dropdown.dropdown-menu {
+  margin-top: 20px;              /* đẩy dropdown xuống dưới avatar */
+  transform: translateX(-20px);  /* dịch toàn bộ dropdown sang trái 20px */
+}
+
+.user-dropdown .dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  color: #000000;
+  transition: all 0.2s ease;
+}
+
+.user-dropdown .dropdown-item i {
+  font-size: 16px;
+  color: #000000;
+  transition: color 0.2s ease;
+}
+
+.user-dropdown .dropdown-item:hover {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.user-dropdown .dropdown-item:hover i {
+  color: #1976d2;
+}
+
+
+
+/* ================================
+   ICON THÔNG BÁO (🔔 & 💬)
+   ================================ */
+.icon-btn {
+  position: relative;
+  font-size: 20px;          /* kích thước icon */
+  font-weight: bold;        /* in đậm icon */
+  color: #333;              /* màu mặc định */
+  margin-right: 30px;       /* khoảng cách giữa các icon */
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.icon-btn:hover {
+  color: #1976d2;           /* màu xanh chủ đạo khi hover */
+}
+
+/* Badge thông báo */
+.icon-btn .badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: #e53935;      /* nền đỏ */
+  color: #fff;              /* chữ trắng */
+  font-size: 11px;
+  font-weight: bold;        /* chữ số in đậm */
+  padding: 2px 6px;
+  border-radius: 12px;      /* bo tròn viên thuốc */
+  line-height: 1;
+}
+
+
+
+/* ================================
+   USERNAME KẾ BÊN AVATAR
+   ================================ */
+#userMenu span {
+  font-weight: 500;     /* in đậm nhẹ (400 = thường, 700 = đậm) */
+  color: #333;          /* màu chữ */
+  transition: color 0.2s ease;
+}
+
+#userMenu span:hover {
+  color: #1976d2;       /* xanh khi hover */
+}
+
+
+.user-avatar {
+  margin-left: 6px; /* khoảng cách avatar so với tên */
+
+}
+
+
+/* Bỏ gạch chân trong tên user */
+#userMenu {
+  text-decoration: none !important;
+  color: inherit;  /* giữ nguyên màu chữ */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .working-hours {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    margin-top: 10px;
+  }
 }
