@@ -141,15 +141,7 @@ header small {
   display: none;
 }
 
-/* Style icon caret (to và đậm) */
-.navbar .dropdown-toggle i {
-  font-size: 1rem;          /* tăng kích thước để rõ hơn */
-  margin-left: 6px;
-  line-height: 1;
-  display: inline-block;    /* cần để transform hoạt động */
-  transition: transform 0.25s ease;
-  color: #000;              /* mũi tên đậm (có thể đổi màu tùy theme) */
-}
+
 
 /* Khi menu đang mở (Bootstrap tự set aria-expanded="true") → xoay caret */
 .navbar .dropdown-toggle[aria-expanded="true"] i {

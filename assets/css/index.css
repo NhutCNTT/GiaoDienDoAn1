@@ -395,19 +395,47 @@ body {
 /* =========================================================
    =============== BÌA SÁCH (CHUNG) ========================
    ========================================================= */
-.book-cover {
-  position: relative; /* để overlay định vị bên trong */
-  aspect-ratio: 1080 / 1350; /* chuẩn tỉ lệ bìa */
-  border-radius: 6px;
-  overflow: hidden; /* bo góc ảnh */
-  background: #f3f3f3; /* nền dự phòng khi ảnh chưa load */
-}
+
+
 
 .book-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover; /* ảnh không méo, lấp đầy khung */
   display: block;
+}
+
+.book-cover {
+  position: relative; /* để overlay định vị bên trong */
+  aspect-ratio: 1080 / 1350; /* chuẩn tỉ lệ bìa */
+  border-radius: 6px;
+  overflow: hidden;/* bo góc ảnh */
+  background: #fff;/* nền dự phòng khi ảnh chưa load */
+
+  /* Bóng 2 lớp để nổi khối */
+  box-shadow: 
+    0 4px 8px rgba(0,0,0,0.75),   /* bóng sát viền */
+    0 12px 24px rgba(0,0,0,0.2); /* bóng lan rộng */
+  transition: all 0.3s ease;
+}
+
+/* Hover → sách như được nhấc lên */
+.book-cover:hover {
+  transform: translateY(-8px); /* nhấc lên cao 8px */
+  box-shadow: 
+    0 8px 16px rgba(0,0,0,0.35),
+    0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* Gáy sách (tạo chiều dày) */
+.book-cover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 100%;
+  background: linear-gradient(to left, rgba(0,0,0,0.15), transparent);
 }
 
 
