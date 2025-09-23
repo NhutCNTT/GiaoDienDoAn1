@@ -407,7 +407,7 @@ body {
 
 .book-cover {
   position: relative; /* để overlay định vị bên trong */
-  aspect-ratio: 1080 / 1350; /* chuẩn tỉ lệ bìa */
+  aspect-ratio: 2 / 3; /* cao hơn, hẹp hơn */ /* chuẩn tỉ lệ bìa */
   border-radius: 6px;
   overflow: hidden;/* bo góc ảnh */
   background: #fff;/* nền dự phòng khi ảnh chưa load */
