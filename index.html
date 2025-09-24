@@ -42,27 +42,34 @@
 
     <!-- Phần nội dung chính của trang -->
     <!-- Hero Banner -->
-    <section class="hero-banner position-relative">\
+    <section class="hero-banner position-relative">
 
       <!-- Ảnh banner -->
-      <img src="./assets/images/bannerr.png" alt="Thư viện" class="w-100" />
+      <img src="./assets/images/banner.png" alt="Thư viện" class="w-100" />
 
-      <!-- Form tìm kiếm nằm bên trong ảnh -->
-      <div class="search-box-wrapper">
-        <form class="search-box">
-          <input type="text" class="form-control" placeholder="Tìm kiếm..." />
-          <button class="btn"><i class="bi bi-search"></i></button>
-          <select class="form-select">
-            <option>Tất cả</option>
-            <option>Nhan đề</option>
-            <option>Tác giả</option>
-            <option>Năm xuất bản</option>
-            <option>Nhà xuất bản</option>
-            <option>Chỉ số phân loại</option>
-          </select>
-          <button class="btn"><i class="bi bi-sliders"></i></button>
-        </form>
-      </div>
+<div class="search-container">
+  <form class="search-form">
+    <select>
+      <option>Tất cả</option>
+      <option>Nhan đề</option>
+      <option>Tác giả</option>
+      <option>Năm xuất bản</option>
+      <option>Nhà xuất bản</option>
+      <option>Chỉ số phân loại</option>
+    </select>
+
+    <input type="text" placeholder="Nhập từ khóa...">
+
+    <button type="submit" class="btn-search">
+      <i class="bi bi-search"></i>
+    </button>
+  </form>
+</div>
+
+
+
+
+
     </section>
 
 
@@ -90,26 +97,37 @@
 
 <!-- Các thẻ lật logo -->
 <div class="library-cards container my-5">
-  <div class="d-flex justify-content-between">
+  <div class="row g-4 justify-content-center text-center">
+    
+    <div class="col-6 col-md-3">
+      <a href="https://www.springernature.com/" target="_blank" class="partner-logo">
+        <img src="assets/images/springernature.png" alt="Springer Nature">
+      </a>
+    </div>
 
-    <a href="https://www.springernature.com/" target="_blank" class="flip-card">
-      <img src="assets/images/springernature.png" alt="Springer Nature">
-    </a>
+    <div class="col-6 col-md-3">
+      <a href="https://www.elsevier.com/" target="_blank" class="partner-logo">
+        <img src="assets/images/elsevier.jpg" alt="Elsevier">
+      </a>
+    </div>
 
-    <a href="https://www.elsevier.com/" target="_blank" class="flip-card">
-      <img src="assets/images/elsevier.jpg" alt="Elsevier">
-    </a>
+    <div class="col-6 col-md-3">
+      <a href="https://www.wiley.com/" target="_blank" class="partner-logo">
+        <img src="assets/images/wiley.png" alt="Wiley">
+      </a>
+    </div>
 
-    <a href="https://www.wiley.com/" target="_blank" class="flip-card">
-      <img src="assets/images/wiley.png" alt="Wiley">
-    </a>
-
-    <a href="https://www.emerald.com/" target="_blank" class="flip-card">
-      <img src="assets/images/emerald.jpg" alt="Emerald">
-    </a>
+    <div class="col-6 col-md-3">
+      <a href="https://www.emerald.com/" target="_blank" class="partner-logo">
+        <img src="assets/images/emerald.jpg" alt="Emerald">
+      </a>
+    </div>
 
   </div>
 </div>
+
+
+
 <!-- ===========================================-->
 
 

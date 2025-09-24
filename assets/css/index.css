@@ -1,19 +1,4 @@
-/* ========== HERO BANNER ========== */
-section.position-relative::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    /* phủ toàn bộ section */
-    background: linear-gradient(rgba(0, 0, 0, 0.6) 0%,
-            /* trên tối hơn */
-            rgba(0, 0, 0, 0.3) 50%,
-            /* giữa mờ nhẹ */
-            rgba(0, 0, 0, 0) 100%
-            /* dưới trong suốt */
-        );
-    z-index: 1;
-    /* overlay nằm trên ảnh nhưng dưới form */
-}
+
 
 /* Text trong hero */
 section.position-relative .translate-middle {
@@ -25,7 +10,7 @@ section.position-relative .translate-middle {
 }
 
 /* Ảnh banner */
-.hero-banner img {
+section.hero-banner img {
     width: 100%;
     height: 500px;
     /* hoặc 600px, tùy chiều cao banner bạn muốn */
@@ -33,125 +18,118 @@ section.position-relative .translate-middle {
     /* lấp đầy khung, giữ tỉ lệ */
 }
 
-/* ========== LOẠI BỎ VIỀN & KHOẢNG TRẮNG TRÊN/DƯỚI BANNER ========== */
 
-/* Xóa border dưới header để banner sát lên trên */
-header,
-.navbar.border-bottom {
-  border-bottom: none !important;
+
+/* ============ BIẾN DỄ CHỈNH ============ */
+:root {
+  --brand: #1d3a73;         /* xanh đậm thương hiệu */
+  --brand-light: #2f6ae0;   /* xanh sáng cho glow */
+  --radius: 50px;
+  --height: 55px;
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-blur: 8px;
+  --divider: rgba(0, 0, 0, 0.1);
 }
 
-/* Xóa margin mặc định của body */
-body {
-  margin: 0;
-  padding: 0;
-}
-
-/* Loại bỏ khoảng trắng thừa trên dưới banner */
-.hero-banner {
-  display: block;
-  margin: 0; /* bỏ margin trên/dưới */
-  padding: 0;
-  line-height: 0; /* tránh khoảng trống do line-height */
-}
-
-/* Ảnh banner vẫn giữ nguyên kích thước và tỉ lệ */
-.hero-banner img {
-  display: block; /* bỏ khoảng trống mặc định của inline-image */
+/* Container nằm chồng trên ảnh */
+.search-container {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
-  height: 500px; /* hoặc 600px tùy ý */
-  object-fit: cover;
-  margin: 0;
-  padding: 0;
+  max-width: 900px;
+  z-index: 5;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* ========== FORM TÌM KIẾM ========== */
-
-/* Wrapper đặt form trong ảnh */
-.search-box-wrapper {
-    position: absolute;
-    bottom: 20px;
-    /* nằm gần mép dưới của ảnh */
-    left: 50%;
-    transform: translateX(-50%);
-    /* căn giữa ngang */
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    z-index: 2;
-    /* nổi trên overlay & ảnh */
+/* Form kính mờ + đổ viền xanh */
+.search-form {
+  display: flex;
+  align-items: center;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius);
+  padding: 5px;
+  border: 2px solid var(--brand); /* viền xanh chính */
+  box-shadow: 0 0 8px rgba(47,106,224,0.4); /* glow xanh nhạt */
+  transition: box-shadow 0.3s, border 0.3s;
 }
 
-/* Form tìm kiếm */
-.search-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-    max-width: 1000px;
-    border-radius: 50px;
-    background: #fff;
-
-    border: 2px solid #0056d2;
-    /* Viền xanh đậm (màu chủ đạo). Làm rõ ranh giới của khung form. */
-    /* bỏ viền cứng */
-    box-shadow:
-        0 0 10px rgba(0, 86, 210, 0.6),
-        /* tầng 1: gần, đậm */
-        0 0 30px rgba(0, 86, 210, 0.4),
-        /* tầng 2: trung bình, nhạt hơn */
-        0 0 60px rgba(0, 86, 210, 0.2);
-    /* tầng 3: xa, rất nhạt */
-
-    overflow: hidden;
+/* Hiệu ứng glow mạnh hơn khi hover */
+.search-form:hover,
+.search-form:focus-within {
+  border: 2px solid var(--brand-light);
+  box-shadow: 0 0 12px rgba(47,106,224,0.8), 
+              0 0 20px rgba(29,58,115,0.4);
 }
 
-/* Ô nhập liệu */
-.search-box .form-control {
-    flex: 1;
-    /* chiếm hết không gian còn lại */
-    border: none;
-    height: 70px;
-    font-size: 1.1rem;
-    padding-left: 40px;
-    /* lùi chữ vào trong */
+/* Select & Input */
+.search-form select,
+.search-form input {
+  height: var(--height);
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  color: #222;
+  padding: 0 12px;
 }
 
-/* Dropdown */
-.search-box .form-select {
-    flex: 0 0 20%;
-    /* chiếm cố định 20% */
-    border: none;
-    height: 70px;
-    font-size: 1rem;
+.search-form select { border-right: 1px solid var(--divider); }
+.search-form input  { flex: 1; }
+
+/* Nút search tròn */
+.search-form .btn-search {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: var(--brand);
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 6px rgba(47,106,224,0.5);
 }
 
-/* Các nút (tìm kiếm & cài đặt) */
-.search-box .btn {
-    flex: 0 0 auto;
-    border: none;
-    background: transparent;
-    height: 70px;
-    font-size: 1.3rem;
-    color: #0056d2;
-    transition: background 0.3s, color 0.3s;
+/* Glow xanh khi hover nút */
+.search-form .btn-search:hover {
+  background: var(--brand-light);
+  box-shadow: 0 0 12px rgba(47,106,224,0.9);
 }
 
-/* Nút cuối cùng (cài đặt) lùi vào một chút */
-.search-box .btn:last-child {
-    margin-right: 20px;
+/* Ẩn mũi tên mặc định của select */
+.search-form select {
+  appearance: none;           
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background: url("data:image/svg+xml;utf8,<svg fill='black' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") 
+              no-repeat right 12px center;
+  background-size: 20px;   /* tăng size mũi tên (mặc định 14px) */
+
+  padding-right: 40px;     /* chừa rộng thêm cho mũi tên lớn */
+  padding-left: 10px;
 }
 
-/* Hiệu ứng hover cho nút */
-.search-box .btn:hover {
-    background: rgba(0, 86, 210, 0.1);
-    color: #0056d2;
+/* Hiệu ứng hover cho select */
+.search-form {
+  border: 2px solid rgba(43, 109, 239, 0.9); /* viền xanh gốc */
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+
+  /* Hiệu ứng glow viền */
+  box-shadow: 
+    0 0 5px rgba(29, 58, 115, 0.8),   /* gần, đậm */
+    0 0 15px rgba(29, 58, 115, 0.5),  /* trung bình, nhạt hơn */
+    0 0 30px rgba(29, 58, 115, 0.3);  /* xa, rất nhạt */
 }
 
-/* Placeholder */
-.search-box .form-control::placeholder {
-    color: #aaa;
-}
 
 
 
@@ -206,64 +184,48 @@ body {
 
 /* ========== CÁC THẺ LOGO CƠ SỞ DỮ LIỆU ========== */
 
-/* Container giữ các logo */
-.library-cards .d-flex {
+/* ====== Container logo ====== */
+.library-cards {
+  margin-bottom: 40px; /* 🔑 chỉnh khoảng cách dưới toàn khối */
+}
+
+/* ====== Khung chứa logo ====== */
+.partner-logo {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 0px;          /* 🔑 Điều chỉnh khoảng cách giữa các logo */
-  overflow-x: auto;
-  padding: 0 5px 10px 0;  /* Giảm padding để logo cuối không cách xa */
-  justify-content: flex-start;
-  scroll-behavior: smooth;
+  align-items: center;
+  justify-content: center;
+  width: 210px;                 /* 🔑 cố định kích thước đồng bộ */
+  height: 180px;
+  margin: 0 auto;               /* căn giữa trong cột */
+  border-radius: 12px;          /* bo góc nhẹ, nhìn hiện đại */
+  background: inherit;          /* 🔑 lấy đúng màu nền cha, tránh lệch màu */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-
-/* Khung chứa logo */
-.flip-card {
-  width: 220px;                   /* 🔑 Chiều rộng cố định cho tất cả logo */
-  height: 260px;                  /* 🔑 Chiều cao cố định cho tất cả logo */
-  flex: 0 0 auto;                 /* Không co giãn khi container thay đổi */
-  background: transparent;        /* Nền trong suốt, không viền */
-  display: flex;
-  align-items: center;            /* Căn logo giữa theo chiều dọc */
-  justify-content: center;        /* Căn logo giữa theo chiều ngang */
-  text-decoration: none;          /* Xóa gạch dưới của thẻ <a> */
-  transition: transform 0.25s ease;
-  
+/* Hiệu ứng hover */
+.partner-logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* bóng đổ nhẹ */
 }
 
-/* Hover: chỉ phóng to khung một chút */
-.flip-card:hover {
-  transform: scale(1.03);         /* Phóng nhẹ cả khung chứa */
-}
-
-/* Ảnh logo bên trong */
-.flip-card img {
-  width: 80%;                     /* 🔑 Logo chiếm 80% chiều ngang khung */
-  height: auto;                   /* Giữ tỉ lệ gốc, tránh méo */
-  max-height: 80%;                /* Không vượt quá 80% chiều cao khung */
-  object-fit: contain;            /* Co giãn nhưng không cắt ảnh */
-  transition: transform 0.25s ease; /* Làm mượt khi phóng to */
+/* ====== Ảnh logo ====== */
+.partner-logo img {
+  max-width: 80%;               /* logo chiếm tối đa 80% chiều ngang khung */
+  max-height: 80%;              /* logo chiếm tối đa 80% chiều cao khung */
+  object-fit: contain;          /* giữ nguyên tỉ lệ, không méo */
   display: block;
+  margin: 0;
+  transition: transform 0.25s ease;
+}
+.partner-logo {
+  background: #fff;   /* 🔑 cùng màu với nền web */
 }
 
-/* Hover: phóng to logo */
-.flip-card:hover img {
-  transform: scale(1.1);          /* 🔑 Logo phóng to thêm 10% khi hover */
+/* Hover: logo phóng nhẹ thêm */
+.partner-logo:hover img {
+  transform: scale(1.1);
 }
 
-
-
-
-/* Reset khoảng cách ngoài của khối */
-.flip-card {
-  margin: 0;   /* 🔑 Bỏ khoảng cách ngoài mặc định */
-}
-
-/* Reset khoảng cách ảnh nếu có */
-.flip-card img {
-  margin: 0;   /* 🔑 Tránh ảnh bị thêm khoảng trắng ngoài */
-}
 
 
 
