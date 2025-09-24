@@ -1,0 +1,30 @@
+/* Ẩn body cho tới khi header + footer load xong */
+body {
+  visibility: hidden;
+}
+body.ready {
+  visibility: visible;
+}
+
+
+/* Ví dụ: font chữ mặc định */
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+
+/* Giữ chỗ header và footer khi load động */
+#header-placeholder {
+  min-height: 120px; /* đúng chiều cao header thật */
+}
+
+#footer-placeholder {
+  min-height: 200px; /* đúng chiều cao footer thật */
+}
+
+/* Luôn hiện thanh cuộn để tránh co giãn */
+html {
+  overflow-y: scroll;
+}

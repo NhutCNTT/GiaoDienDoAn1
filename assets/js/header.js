@@ -11,10 +11,21 @@ function loadHeader() {
       if (!host) return;
       host.innerHTML = html;
       setupUserMenu(); // chỉ gọi sau khi header render xong
+
+      // 🔹 Đánh dấu đã load header
+      document.body.dataset.headerLoaded = "true";
+
+      // Gọi hàm chung từ layout.js
+      if (typeof checkLayoutReady === "function") {
+        checkLayoutReady();
+      }
     })
     .catch(err => console.error("Lỗi khi load header:", err));
 }
 
+/* =========================================================
+   AUTH UTILS
+   ========================================================= */
 function getAuth() {
   if (localStorage.getItem("loggedIn") === "true") {
     return { store: localStorage, username: localStorage.getItem("username") };
@@ -25,6 +36,9 @@ function getAuth() {
   return null;
 }
 
+/* =========================================================
+   SETUP USER MENU + LOGIN FORM
+   ========================================================= */
 function setupUserMenu() {
   const loginBtn = document.getElementById("login-btn");
   const userBox  = document.getElementById("user-menu");
@@ -35,16 +49,16 @@ function setupUserMenu() {
     loginBtn?.classList.add("d-none");
     userBox?.classList.remove("d-none");
 
-    // 🔹 GẮN TÊN & AVATAR (chỉ target trong anchor #userMenu)
+    // 🔹 GẮN TÊN & AVATAR
     const nameSpan = document.querySelector("#userMenu .user-name");
     if (nameSpan) nameSpan.textContent = auth.username;
 
     const avatar = document.querySelector("#userMenu .user-avatar");
     if (avatar) avatar.textContent = auth.username[0].toUpperCase();
 
-    // (tuỳ chọn) gán số thông báo demo
-    const bellBadge = document.querySelector(".icon-btn .badge#bell-badge");
-    const chatBadge = document.querySelector(".icon-btn .badge#chat-badge");
+    // Demo badge
+    const bellBadge = document.querySelector("#bell-badge");
+    const chatBadge = document.querySelector("#chat-badge");
     if (bellBadge) bellBadge.textContent = "3";
     if (chatBadge) chatBadge.textContent = "2";
   } else {
@@ -56,10 +70,8 @@ function setupUserMenu() {
   // Đăng xuất
   document.getElementById("logout-btn")?.addEventListener("click", (e) => {
     e.preventDefault();
-    localStorage.removeItem("loggedIn");
-    localStorage.removeItem("username");
-    sessionStorage.removeItem("loggedIn");
-    sessionStorage.removeItem("username");
+    localStorage.clear();
+    sessionStorage.clear();
     window.location.href = "login.html";
   });
 

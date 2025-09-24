@@ -208,19 +208,20 @@ body {
 
 /* Container giữ các logo */
 .library-cards .d-flex {
-  display: flex;                  /* Sắp xếp theo hàng ngang */
-  flex-wrap: nowrap;              /* Không cho xuống hàng */
-  gap: 20px;                      /* Khoảng cách đều giữa các logo */
-  overflow-x: auto;               /* Nếu màn nhỏ → có thể cuộn ngang */
-  padding: 0 20px 10px 0;         /* Chừa khoảng trống bên phải để logo cuối không bị sát mép */
-  justify-content: flex-start;    /* Căn các logo về bên trái */
-  scroll-behavior: smooth;        /* Cuộn mượt khi dùng thanh cuộn */
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0px;          /* 🔑 Điều chỉnh khoảng cách giữa các logo */
+  overflow-x: auto;
+  padding: 0 5px 10px 0;  /* Giảm padding để logo cuối không cách xa */
+  justify-content: flex-start;
+  scroll-behavior: smooth;
 }
+
 
 /* Khung chứa logo */
 .flip-card {
-  width: 260px;                   /* 🔑 Chiều rộng cố định cho tất cả logo */
-  height: 200px;                  /* 🔑 Chiều cao cố định cho tất cả logo */
+  width: 220px;                   /* 🔑 Chiều rộng cố định cho tất cả logo */
+  height: 260px;                  /* 🔑 Chiều cao cố định cho tất cả logo */
   flex: 0 0 auto;                 /* Không co giãn khi container thay đổi */
   background: transparent;        /* Nền trong suốt, không viền */
   display: flex;
@@ -228,6 +229,7 @@ body {
   justify-content: center;        /* Căn logo giữa theo chiều ngang */
   text-decoration: none;          /* Xóa gạch dưới của thẻ <a> */
   transition: transform 0.25s ease;
+  
 }
 
 /* Hover: chỉ phóng to khung một chút */
@@ -251,6 +253,17 @@ body {
 }
 
 
+
+
+/* Reset khoảng cách ngoài của khối */
+.flip-card {
+  margin: 0;   /* 🔑 Bỏ khoảng cách ngoài mặc định */
+}
+
+/* Reset khoảng cách ảnh nếu có */
+.flip-card img {
+  margin: 0;   /* 🔑 Tránh ảnh bị thêm khoảng trắng ngoài */
+}
 
 
 

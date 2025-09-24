@@ -3,13 +3,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // Load footer.html vào placeholder
   fetch("components/footer.html")
     .then(res => res.text())
-    .then(data => {
-      document.getElementById("footer-placeholder").innerHTML = data;
+    .then(html => {
+      const host = document.getElementById("footer-placeholder");
+      if (!host) return;
+      host.innerHTML = html;
 
-      // Sau khi footer được chèn, có thể đổ dữ liệu thống kê
-      updateFooterStats();
+      // 🔹 Đánh dấu đã load footer
+      document.body.dataset.footerLoaded = "true";
+
+      // Gọi hàm từ layout.js
+      if (typeof checkLayoutReady === "function") {
+        checkLayoutReady();
+      }
     })
-    .catch(err => console.error("Không load được footer:", err));
+    .catch(err => console.error("Lỗi khi load footer:", err));
 });
 
 // Hàm giả lập đổ dữ liệu thống kê (có thể thay bằng API thật)

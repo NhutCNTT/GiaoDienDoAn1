@@ -1,42 +1,92 @@
-body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
+/* =========================================================
+   CSS RIÊNG CHO TRANG GIỚI THIỆU (introduce.html)
+   Scope: .introduce-main
+   ========================================================= */
+
+/* ============ MAIN CONTENT ============ */
+.introduce-main {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  color: #333;
+  line-height: 1.6;
+  padding: 1rem;
+
+  /* Giữ khung ổn định khi header/footer load */
+  min-height: calc(100vh - 300px); /* ước lượng header 120px + footer 180px */
 }
 
-/* Nội dung */
-h4 {
-    margin-top: 1.5rem;
-    color: #0056d2;
-    font-weight: bold;
+/* ============ TIÊU ĐỀ ============ */
+.introduce-main h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: #0056d2;
+  font-weight: bold;
+  font-size: 1.25rem;
 }
 
-h5 {
-    margin-top: 1rem;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: #333;
+.introduce-main h5 {
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #333;
 }
 
-h6 {
-    margin-top: 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #555;
+.introduce-main h6 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #555;
 }
 
-ul,
-ol {
-    padding-left: 1.2rem;
+/* ============ DANH SÁCH ============ */
+.introduce-main ul,
+.introduce-main ol {
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
 }
 
-ul li,
-ol li {
-    margin-bottom: 0.5rem;
+.introduce-main ul li,
+.introduce-main ol li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
 }
 
-.scrollspy-example-2 {
-    max-height: 80vh;
-    overflow-y: auto;
-    padding: 1rem;
-    position: relative;
+/* ============ SCROLLSPY ============ */
+.introduce-main .scrollspy-example-2 {
+  /* Giữ chỗ để không bị co giãn đột ngột */
+  min-height: 400px;              
+  max-height: calc(100vh - 200px); /* co giãn theo màn hình */
+  overflow-y: auto;               
+  padding: 1rem;
+
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* ============ LINK TRONG NỘI DUNG ============ */
+.introduce-main a {
+  color: #0056d2;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.introduce-main a:hover {
+  color: #003c99;
+  text-decoration: underline;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .introduce-main {
+    min-height: auto; /* bỏ chiều cao cứng khi màn nhỏ */
+  }
+
+  .introduce-main .scrollspy-example-2 {
+    min-height: auto;
+    max-height: none;
+    padding: 0.75rem;
+  }
 }

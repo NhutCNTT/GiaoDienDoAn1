@@ -81,7 +81,7 @@ header small {
 }
 
 .navbar-nav .nav-item {
-  margin-right: 20px; /* khoảng cách giữa các link */
+  margin-right: 55px; /* khoảng cách giữa các link */
 }
 
 .navbar-nav .nav-link {
@@ -151,7 +151,7 @@ header small {
 
 .navbar .dropdown-toggle i { color: #111; }  /* hoặc #000 */
 
-/* ==================== DROPDOWN MENU ==================== */
+
 /* ==================== DROPDOWN MENU ==================== */
 
 /* Nền và viền của menu */
@@ -331,7 +331,6 @@ html {
   text-decoration: none !important;
   color: inherit;  /* giữ nguyên màu chữ */
 }
-
 
 
 
