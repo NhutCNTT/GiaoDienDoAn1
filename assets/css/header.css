@@ -256,7 +256,7 @@ html {
 }
 .user-dropdown.dropdown-menu {
   margin-top: 20px;              /* đẩy dropdown xuống dưới avatar */
-  transform: translateX(-29px);  /* dịch toàn bộ dropdown sang trái 20px */
+  transform: translateX(-25px);  /* dịch toàn bộ dropdown sang trái 20px */
 }
 
 .user-dropdown .dropdown-item {
@@ -333,7 +333,7 @@ html {
 
 
 .user-avatar {
-  margin-left: 6px; /* khoảng cách avatar so với tên */
+  margin-left: 3px; /* khoảng cách avatar so với tên */
 
 }
 
