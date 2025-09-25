@@ -90,10 +90,13 @@ body {
   border: 1px solid #ccc;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
+
 .form-control:focus {
-  border-color: #1976d2;
-  box-shadow: 0 0 6px rgba(25, 118, 210, 0.3);
+  border-color: #1976d2; 
+  box-shadow: 0 0 6px 3px rgba(25, 118, 210, 0.35); /* hiệu ứng viền rộng */
+  outline: none; /* bỏ viền mặc định của trình duyệt */
 }
+
 
 /* Nút Register */
 .btn-login {
@@ -129,6 +132,22 @@ body {
 }
 .form-link:hover {
   color: #1259a5;
+}
+/* Đổi màu placeholder cho tất cả input text/email/password/address */
+::placeholder {
+  color: #999 !important;
+  opacity: 1;
+}
+
+/* Với input date khi chưa chọn ngày */
+input[type="date"]:invalid::-webkit-datetime-edit {
+  color: #999; /* màu giống placeholder */
+  opacity: 1;
+}
+
+/* Khi đã chọn ngày */
+input[type="date"] {
+  color: #333; /* màu chữ chuẩn */
 }
 
   </style>
