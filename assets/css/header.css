@@ -79,9 +79,20 @@ header small {
   margin-bottom: 15px;
   margin-left: 0;
 }
+.navbar-nav .nav-link {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #333;
+  transition: color 0.3s;
+  position: relative;
+  padding-bottom: 6px; /* chừa chỗ vẽ gạch chân */
+  white-space: nowrap; /* 🔑 giữ nguyên chữ, không xuống dòng */
+  word-break: keep-all; /* 🔑 không tách từ khi gặp dấu cách */
+}
+
 
 .navbar-nav .nav-item {
-  margin-right: 55px; /* khoảng cách giữa các link */
+  margin-right: 42px; /* khoảng cách giữa các link */
 }
 
 .navbar-nav .nav-link {
@@ -110,6 +121,7 @@ header small {
   background-color: transparent;
   transition: background-color 0.3s ease;
 }
+
 
 .navbar-nav .nav-link:hover::after,
 .navbar-nav .nav-link.active::after {
@@ -244,7 +256,7 @@ html {
 }
 .user-dropdown.dropdown-menu {
   margin-top: 20px;              /* đẩy dropdown xuống dưới avatar */
-  transform: translateX(-20px);  /* dịch toàn bộ dropdown sang trái 20px */
+  transform: translateX(-29px);  /* dịch toàn bộ dropdown sang trái 20px */
 }
 
 .user-dropdown .dropdown-item {

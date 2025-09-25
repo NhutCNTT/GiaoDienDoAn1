@@ -9,13 +9,18 @@ function loadHeader() {
     .then(html => {
       const host = document.getElementById("header-placeholder");
       if (!host) return;
-      host.innerHTML = html;
-      setupUserMenu(); // chỉ gọi sau khi header render xong
 
-      // 🔹 Đánh dấu đã load header
+      // Gắn HTML header vào trang
+      host.innerHTML = html;
+
+      // Setup sau khi header đã render
+      setupUserMenu(); 
+      highlightActiveLink(); // ✅ Đánh dấu link active
+
+      // Đánh dấu đã load header
       document.body.dataset.headerLoaded = "true";
 
-      // Gọi hàm chung từ layout.js
+      // Nếu có hàm checkLayoutReady (ngoài), gọi thêm
       if (typeof checkLayoutReady === "function") {
         checkLayoutReady();
       }
@@ -45,24 +50,24 @@ function setupUserMenu() {
   const auth = getAuth();
 
   if (auth?.username) {
-    // đã đăng nhập
+    // 🔹 Đã đăng nhập
     loginBtn?.classList.add("d-none");
     userBox?.classList.remove("d-none");
 
-    // 🔹 GẮN TÊN & AVATAR
+    // Gắn tên & avatar
     const nameSpan = document.querySelector("#userMenu .user-name");
     if (nameSpan) nameSpan.textContent = auth.username;
 
     const avatar = document.querySelector("#userMenu .user-avatar");
     if (avatar) avatar.textContent = auth.username[0].toUpperCase();
 
-    // Demo badge
+    // Demo badge (thông báo)
     const bellBadge = document.querySelector("#bell-badge");
     const chatBadge = document.querySelector("#chat-badge");
     if (bellBadge) bellBadge.textContent = "3";
     if (chatBadge) chatBadge.textContent = "2";
   } else {
-    // chưa đăng nhập
+    // 🔹 Chưa đăng nhập
     userBox?.classList.add("d-none");
     loginBtn?.classList.remove("d-none");
   }
@@ -75,7 +80,7 @@ function setupUserMenu() {
     window.location.href = "login.html";
   });
 
-  // Nếu đang ở trang login → xử lý form
+  // Xử lý form login nếu đang ở login.html
   const loginForm = document.getElementById("loginForm");
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
@@ -103,4 +108,27 @@ function setupUserMenu() {
       }
     });
   }
+}
+
+/* =========================================================
+   HIGHLIGHT ACTIVE NAV LINK
+   ========================================================= */
+function highlightActiveLink() {
+  const links = document.querySelectorAll(".navbar-nav .nav-link, .dropdown-item");
+  const currentUrl = window.location.pathname.split("/").pop(); // ví dụ: introduce.html
+
+  links.forEach(link => {
+    const linkUrl = link.getAttribute("href");
+
+    if (linkUrl === currentUrl) {
+      link.classList.add("active");
+
+      // Nếu link trong dropdown → đánh dấu cha
+      const parentDropdown = link.closest(".dropdown");
+      if (parentDropdown) {
+        const parentLink = parentDropdown.querySelector(".nav-link");
+        if (parentLink) parentLink.classList.add("active");
+      }
+    }
+  });
 }
