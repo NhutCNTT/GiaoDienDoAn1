@@ -148,73 +148,111 @@ body {
     </ul>
   </div>
 
-  <!-- Cột phải: Form đăng ký -->
-  <div class="login-right">
-    <div class="login-card">
-      <h4><i class="bi bi-person-plus me-2"></i>Register</h4>
-      <form id="registerForm">
-        <!-- Full Name -->
-        <div class="mb-3">
-          <input type="text" id="fullname" class="form-control" placeholder="Full Name" required>
-        </div>
-
-        <!-- Email -->
-        <div class="mb-3">
-          <input type="email" id="email" class="form-control" placeholder="Email (student@ctut.edu.vn)" required>
-        </div>
-
-        <!-- Password -->
-        <div class="mb-3">
-          <input type="password" id="password" class="form-control" placeholder="Password" required>
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mb-3">
-          <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" required>
-        </div>
-
-        <!-- Error -->
-        <div id="error-msg" class="text-danger small mb-3 d-none"></div>
-
-        <!-- Submit -->
-        <button type="submit" class="btn btn-primary w-100 btn-login">Register</button>
-
-        <!-- Links dưới form -->
-        <div class="d-flex justify-content-between mt-3 small-link-block">
-          <a href="login.html" class="form-link">Back to Login</a>
-          <a href="index.html" class="form-link">Continue as Guest</a>
-        </div>
-      </form>
-
-      <div class="note">
-        Use your <strong>CTUT email</strong> to register.
+ <!-- Cột phải: Form đăng ký -->
+<div class="login-right">
+  <div class="login-card">
+    <h4><i class="bi bi-person-plus me-2"></i>Register</h4>
+    <form id="registerForm">
+      <!-- Full Name -->
+      <div class="mb-3">
+        <input type="text" id="fullname" class="form-control" placeholder="Full Name" required>
       </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <input type="email" id="email" class="form-control" placeholder="Email (student@ctut.edu.vn)" required>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="mb-3">
+        <input type="tel" id="phone" class="form-control" placeholder="Phone Number" pattern="[0-9]{10}" required>
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="mb-3">
+        <input type="date" id="dob" class="form-control" required>
+      </div>
+
+      <!-- Address -->
+      <div class="mb-3">
+        <input type="text" id="address" class="form-control" placeholder="Address" required>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <input type="password" id="password" class="form-control" placeholder="Password" required>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="mb-3">
+        <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" required>
+      </div>
+
+      <!-- Error -->
+      <div id="error-msg" class="text-danger small mb-3 d-none"></div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn btn-primary w-100 btn-login">Register</button>
+
+      <!-- Links dưới form -->
+      <div class="d-flex justify-content-between mt-3 small-link-block">
+        <a href="login.html" class="form-link">Back to Login</a>
+        <a href="index.html" class="form-link">Continue as Guest</a>
+      </div>
+    </form>
+
+    <div class="note">
+      Use your <strong>CTUT email</strong> to register.
     </div>
   </div>
+</div>
 
-  <!-- JS xử lý đăng ký -->
-  <script>
-    document.getElementById("registerForm")?.addEventListener("submit", function (e) {
-      e.preventDefault();
 
-      const fullname = document.getElementById("fullname").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value.trim();
-      const confirmPassword = document.getElementById("confirmPassword").value.trim();
-      const errorMsg = document.getElementById("error-msg");
+ <!-- JS xử lý đăng ký -->
+<script>
+  document.getElementById("registerForm")?.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-      if (password !== confirmPassword) {
-        errorMsg.textContent = "❌ Passwords do not match!";
-        errorMsg.classList.remove("d-none");
-        return;
-      }
+    const fullname = document.getElementById("fullname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const dob = document.getElementById("dob").value;
+    const address = document.getElementById("address").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const confirmPassword = document.getElementById("confirmPassword").value.trim();
+    const errorMsg = document.getElementById("error-msg");
 
-      // Demo: Lưu tạm thông tin (sau này sẽ thay bằng API hoặc server DB)
-      localStorage.setItem("registeredUser", JSON.stringify({ fullname, email, password }));
+    // Kiểm tra mật khẩu khớp
+    if (password !== confirmPassword) {
+      errorMsg.textContent = "❌ Passwords do not match!";
+      errorMsg.classList.remove("d-none");
+      return;
+    }
 
-      alert("✅ Registration successful! Please login.");
-      window.location.href = "login.html";
-    });
-  </script>
+    // Kiểm tra số điện thoại đủ 10 chữ số
+    const phonePattern = /^[0-9]{10}$/;
+    if (!phonePattern.test(phone)) {
+      errorMsg.textContent = "❌ Phone number must be 10 digits!";
+      errorMsg.classList.remove("d-none");
+      return;
+    }
+
+    // Kiểm tra ngày sinh không để trống
+    if (!dob) {
+      errorMsg.textContent = "❌ Please select your date of birth!";
+      errorMsg.classList.remove("d-none");
+      return;
+    }
+
+    // Demo: Lưu thông tin vào localStorage (sau này thay bằng DB/API)
+    localStorage.setItem("registeredUser", JSON.stringify({
+      fullname, email, phone, dob, address, password
+    }));
+
+    alert("✅ Registration successful! Please login.");
+    window.location.href = "login.html";
+  });
+</script>
+
 </body>
 </html>
