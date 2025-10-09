@@ -132,3 +132,95 @@ function highlightActiveLink() {
     }
   });
 }
+
+
+/* ============================================================
+   HEADER NAV — Dropdown: Desktop=Hover, Mobile=Click (Bootstrap)
+   - Desktop (>=992px): mở bằng hover qua CSS, tắt data-bs-toggle.
+   - Mobile  (<992px): thêm data-bs-toggle="dropdown" để mở bằng click.
+   - Tự dọn trạng thái .show khi chuyển kích thước.
+   - Ngăn nhảy trang khi href="#" ở desktop hover.
+   ============================================================ */
+
+(() => {
+  const DESKTOP_MIN = 992;
+
+  // Gắn/tắt hành vi click của Bootstrap cho mobile
+  function applyDropdownMode() {
+    const toggles = document.querySelectorAll('.navbar .dropdown-toggle');
+    const isMobile = window.innerWidth < DESKTOP_MIN;
+
+    toggles.forEach(t => {
+      if (isMobile) {
+        t.setAttribute('data-bs-toggle', 'dropdown');
+        t.setAttribute('data-bs-auto-close', 'outside'); // click ngoài thì đóng
+      } else {
+        t.removeAttribute('data-bs-toggle');
+        t.removeAttribute('data-bs-auto-close');
+
+        // Nếu đang mở theo Bootstrap (do trước đó là mobile) → đóng lại
+        const menu = t.parentElement && t.parentElement.querySelector('.dropdown-menu');
+        if (menu && menu.classList.contains('show') && window.bootstrap) {
+          const inst = bootstrap.Dropdown.getInstance(t) || new bootstrap.Dropdown(t);
+          inst.hide();
+          // đồng bộ aria
+          t.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  }
+
+  // Chặn nhảy trang khi href="#" ở desktop (hover)
+  function preventHashJumpOnDesktop(e) {
+    const link = e.target.closest('.navbar .dropdown-toggle');
+    if (!link) return;
+    const isMobile = window.innerWidth < DESKTOP_MIN;
+
+    // Ở desktop, nếu link là "#" thì không điều hướng (đã có hover)
+    if (!isMobile && link.getAttribute('href') === '#') {
+      e.preventDefault();
+    }
+  }
+
+  // (Khuyên dùng) Đóng tất cả dropdown khi click link con trên mobile
+  function closeOnItemClickMobile(e) {
+    const item = e.target.closest('.dropdown-menu .dropdown-item');
+    if (!item) return;
+    const isMobile = window.innerWidth < DESKTOP_MIN;
+    if (!isMobile) return;
+
+    // tìm toggle cha gần nhất và đóng
+    const parentDropdown = item.closest('.nav-item.dropdown');
+    if (!parentDropdown) return;
+    const toggle = parentDropdown.querySelector('.dropdown-toggle');
+    if (toggle && window.bootstrap) {
+      const inst = bootstrap.Dropdown.getInstance(toggle) || new bootstrap.Dropdown(toggle);
+      inst.hide();
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  // Khởi tạo sau khi DOM sẵn sàng
+  function init() {
+    applyDropdownMode();
+
+    // Debounce resize để đổi chế độ mượt
+    let tmr;
+    window.addEventListener('resize', () => {
+      clearTimeout(tmr);
+      tmr = setTimeout(applyDropdownMode, 150);
+    });
+
+    // Chặn nhảy trang cho href="#" khi dùng hover (desktop)
+    document.addEventListener('click', preventHashJumpOnDesktop);
+
+    // Đóng menu trên mobile khi chọn mục con
+    document.addEventListener('click', closeOnItemClickMobile);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

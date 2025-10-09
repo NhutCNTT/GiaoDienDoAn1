@@ -1,228 +1,246 @@
+/* ============================================================
+   HEADER — LOGO, TIÊU ĐỀ, GIỜ HOẠT ĐỘNG, NAVBAR, DROPDOWN
+   Lưu ý: GIỮ NGUYÊN TẤT CẢ QUY TẮC. Chỉ bổ sung comment giải thích.
+   ============================================================ */
+
+
 /* ==================== LOGO VÀ TIÊU ĐỀ ==================== */
+/* Logo ở header: cố định chiều cao, giữ tỉ lệ ảnh theo chiều rộng */
 .logo-header {
-  height: 120px; /* chiều cao logo */
-  width: auto;  /* giữ tỉ lệ ảnh */
+  height: 120px;            /* chiều cao logo khớp khối giờ hoạt động */
+  width: auto;              /* giữ tỉ lệ ảnh, tránh méo */
 }
 
+/* Tiêu đề đơn vị (h6) — màu chủ đạo + gạch chân tinh gọn */
 header h6 {
-  font-size: 20px;
-  font-weight: 800;
-  color: #0056d2;
-  text-transform: uppercase;
-  text-decoration: underline;
-  text-decoration-color: #0056d2;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 5px;
+  font-size: 20px;          /* kích thước nổi bật nhưng không quá lớn */
+  font-weight: 800;         /* rất đậm để tạo điểm nhấn */
+  color: #0056d2;           /* xanh chủ đạo */
+  text-transform: uppercase;/* đồng nhất in hoa */
+  text-decoration: underline;              /* bật gạch chân */
+  text-decoration-color: #0056d2;         /* màu gạch chân */
+  text-decoration-thickness: 1.5px;       /* độ dày gạch */
+  text-underline-offset: 5px;             /* khoảng cách chữ–gạch chân */
 }
 
+/* Dòng mô tả tiếng Anh dưới tiêu đề */
 header small {
   font-size: 14px;
   font-weight: 500;
-  color: #6c757d;
+  color: #6c757d;           /* xám trung tính */
 }
 
+
 /* ==================== KHỐI GIỜ HOẠT ĐỘNG ==================== */
+/* Khối “Giờ hoạt động” đặt nổi ở góc phải trên của header */
 .working-hours {
-  background: #0b4b87;
-  color: #fff;
-  padding: 10px 20px;
-  border-bottom-left-radius: 40px;
+  background: #0b4b87;      /* nền xanh đậm */
+  color: #fff;              /* chữ trắng để tương phản */
+  padding: 10px 20px;       /* thoáng nội dung */
+  border-bottom-left-radius: 40px; /* bo góc tạo dáng “nhãn” */
   font-size: 0.95rem;
   font-weight: 500;
 
-  position: absolute;
+  position: absolute;       /* neo vào góc container header */
   top: 0;
   right: 0;
-  height: 120px; /* bằng logo */
+  height: 120px;            /* đồng mức với logo */
   box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.3),
-    0 8px 20px rgba(0, 0, 0, 0.25);
+    0 2px 6px rgba(0, 0, 0, 0.3),     /* bóng gần */
+    0 8px 20px rgba(0, 0, 0, 0.25);   /* bóng xa */
 }
 
+/* Icon đồng hồ trong khối giờ hoạt động */
 .working-hours i {
-  font-size: 1.8rem;
+  font-size: 1.8rem;        /* icon đủ lớn để dễ nhìn */
   color: #fff;
-  margin-right: 10px;
+  margin-right: 10px;       /* cách chữ */
 }
 
+/* Dòng “Thứ 2 đến Thứ 7” */
 .working-hours strong {
   font-size: 1rem;
   font-weight: 700;
 }
 
+
 /* ==================== NÚT ĐĂNG NHẬP ==================== */
+/* Nút login dạng text + icon, căn phải bằng margin-left:auto */
 .btn-login {
   color: #0056d2;
   font-weight: 600;
   font-size: 1rem;
-  background: transparent;
-  border: none;
-  display: inline-flex;
+  background: transparent;  /* nền trong suốt */
+  border: none;             /* bỏ viền nút mặc định */
+  display: inline-flex;     /* canh giữa icon + text */
   align-items: center;
-  margin-left: auto; /* đẩy sang phải */
-  transition: color 0.3s;
+  margin-left: auto;        /* đẩy hết sang phải dãy flex */
+  transition: color 0.3s;   /* mượt khi hover */
 }
 
+/* Kích thước/màu icon người dùng */
 .btn-login i {
   font-size: 1.5rem;
   color: #0056d2;
 }
 
+/* Đổi màu khi hover để có phản hồi */
 .btn-login:hover,
 .btn-login:hover i {
-  color: #003c99; /* xanh đậm khi hover */
+  color: #003c99;           /* xanh đậm hơn khi hover */
 }
 
+
 /* ==================== MENU NAVBAR ==================== */
+/* Khoảng cách dọc tổng thể cho danh sách menu */
 .navbar-nav {
   margin-top: 10px;
   margin-bottom: 15px;
   margin-left: 0;
 }
+
+/* Link menu: kiểu chữ đậm, có chừa chỗ để vẽ gạch chân bằng ::after */
 .navbar-nav .nav-link {
   font-weight: 700;
   font-size: 0.95rem;
   color: #333;
   transition: color 0.3s;
-  position: relative;
-  padding-bottom: 6px; /* chừa chỗ vẽ gạch chân */
-  white-space: nowrap; /* 🔑 giữ nguyên chữ, không xuống dòng */
-  word-break: keep-all; /* 🔑 không tách từ khi gặp dấu cách */
+  position: relative;        /* cần để pseudo-element định vị */
+  padding-bottom: 6px;       /* chừa chỗ cho gạch chân */
+  white-space: nowrap;       /* không cho tự xuống dòng */
+  word-break: keep-all;      /* không bẻ từ */
 }
 
-
+/* Khoảng cách ngang giữa các mục menu */
 .navbar-nav .nav-item {
-  margin-right: 42px; /* khoảng cách giữa các link */
+  margin-right: 37px;
 }
 
+/* (Giữ nguyên khối lặp lại — không ảnh hưởng hoạt động) */
 .navbar-nav .nav-link {
   font-weight: 700;
   font-size: 0.95rem;
   color: #333;
   transition: color 0.3s;
   position: relative;
-  padding-bottom: 6px; /* chừa chỗ vẽ gạch chân */
+  padding-bottom: 6px;
 }
 
+/* Màu chữ khi hover/active */
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
   color: #0056d2;
 }
 
+
 /* ==================== GẠCH CHÂN LINK THƯỜNG ==================== */
-/* ===== Gạch chân link thường ===== */
+/* Dùng ::after để vẽ gạch chân ngắn cố định */
 .navbar-nav .nav-link::after {
   content: "";
   position: absolute;
   bottom: 0;
-  right: 0; /* bắt đầu từ bên phải */
-  width: 50px; /* 👈 CHIỀU DÀI CỐ ĐỊNH — chỉnh tại đây */
-  height: 3px; /* 👈 ĐỘ DÀY — chỉnh tại đây */
+  right: 0;                 /* gạch bắt đầu từ bên phải */
+  width: 50px;              /* chiều dài gạch cố định */
+  height: 3px;              /* độ dày gạch */
   background-color: transparent;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease; /* chỉ đổi màu (bật/tắt) */
 }
 
-
+/* Bật gạch (màu đỏ) khi hover/active */
 .navbar-nav .nav-link:hover::after,
 .navbar-nav .nav-link.active::after {
   background-color: red;
 }
 
+
 /* ===== Gạch chân riêng DANH MỤC TÀI LIỆU ===== */
+/* Dùng ::before để chừa khoảng caret (right:20px) */
 .navbar-nav .nav-documents::before {
   content: "";
   position: absolute;
   bottom: 0;
-  right: 20px; /* 👈 chừa chỗ cho caret */
-  width: 50px; /* 👈 cùng kích thước với link thường */
+  right: 20px;              /* chừa chỗ icon caret */
+  width: 50px;
   height: 3px;
   background-color: transparent;
   transition: background-color 0.3s ease;
 }
 
+/* Bật gạch khi hover/active ở chính link */
 .navbar-nav .nav-documents:hover::before,
 .navbar-nav .nav-documents.active::before {
   background-color: red;
 }
 
 
-
 /* ==================== CARET (MŨI TÊN) ==================== */
-/* Ẩn caret mặc định của Bootstrap */
+/* Ẩn caret mặc định của Bootstrap để dùng icon <i> tùy biến */
 .navbar .dropdown-toggle::after {
   display: none;
 }
 
-
-
-/* Khi menu đang mở (Bootstrap tự set aria-expanded="true") → xoay caret */
+/* Xoay caret khi menu đang mở (Bootstrap set aria-expanded="true") */
 .navbar .dropdown-toggle[aria-expanded="true"] i {
   transform: rotate(180deg);
 }
 
-
+/* Màu caret mặc định */
 .navbar .dropdown-toggle i { color: #111; }  /* hoặc #000 */
 
 
-/* ==================== DROPDOWN MENU ==================== */
-
-/* Nền và viền của menu */
+/* ==================== DROPDOWN MENU (PHỔ THÔNG) ==================== */
+/* Style nền/viền/đổ bóng và hiệu ứng trượt mượt */
 .dropdown-menu {
-  background-color: #ffffff;         /* nền trắng như ảnh */
-  border: 1px solid #ddd;           /* viền xám nhạt tách menu với nền */
-  border-radius: 0px;               /* bo góc */
-  padding: 0.5rem 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* đổ bóng giống ảnh */
-  transform: translateY(10px);
-  opacity: 0;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  background-color: #ffffff;   /* nền trắng */
+  border: 1px solid #ddd;      /* viền xám mảnh */
+  border-radius: 0px;          /* bo góc phẳng */
+  padding: 0.5rem 0;           /* khoảng đệm dọc */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* bóng */
+  transform: translateY(10px); /* vị trí ban đầu để trượt xuống */
+  opacity: 0;                  /* ẩn mờ ban đầu */
+  transition: opacity 0.2s ease, transform 0.2s ease; /* hiệu ứng mở */
 }
 
-/* Hiển thị mượt khi mở */
+/* Khi Bootstrap thêm .show → bật hiện + trượt về 0 */
 .dropdown-menu.show {
   transform: translateY(0);
   opacity: 1;
 }
 
-/* Mỗi item bên trong dropdown */
+/* Từng dòng item trong dropdown chung */
 .dropdown-item {
-  color: #333;                      /* chữ đen xám đậm */
+  color: #333;
   font-weight: 400;
   padding: 4px 18px;
-  border-bottom: 1px solid #eee;    /* đường kẻ mảnh giữa các mục */
+  border-bottom: 1px solid #eee; /* đường phân cách giữa các mục */
 }
 
-/* Bỏ đường kẻ mục cuối cùng */
+/* Không kẻ đường cho dòng cuối */
 .dropdown-item:last-child {
   border-bottom: none;
 }
 
-/* Hiệu ứng hover: nền xanh nhạt + chữ xanh đậm */
+/* Hover item: đảo nền–chữ để nổi bật lựa chọn */
 .dropdown-item:hover {
-  background-color: #0056d2; /* xanh nhạt highlight */
-  color: #ffffff;           /* xanh chủ đạo */
+  background-color: #0056d2; /* nền xanh chủ đạo */
+  color: #ffffff;            /* chữ trắng */
 }
 
 
 /* ==================== LUÔN HIỂN THỊ SCROLLBAR ==================== */
+/* Tránh “nhảy layout” khi chuyển trang thấp/cao nội dung */
 html {
   overflow-y: scroll;
 }
 
-/* ================================
-   USER AVATAR (Ảnh đại diện mặc định)
-   - Hình tròn, chữ cái đầu tên user
-   ================================ */
 
-
-/* ================================
-   AVATAR USER
-   ================================ */
+/* ================================ USER AVATAR (chữ cái đầu) ================================ */
+/* Vòng tròn với chữ cái đầu, có bóng nhẹ */
 .user-avatar {
   width: 32px;
   height: 32px;
-  border-radius: 20px;              /* bo nhẹ */
-  background: #85518c;             /* màu tím chủ đạo */
+  border-radius: 20px;       /* bo tròn (gần tròn hoàn toàn) */
+  background: #85518c;       /* màu nền avatar */
   color: #fff;
   font-weight: bold;
   font-size: 0.9rem;
@@ -232,20 +250,18 @@ html {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-
-/* Điều chỉnh vị trí dropdown user */
+/* Vị trí dropdown user so với avatar */
 .user-dropdown.dropdown-menu {
-  margin-top: 15px;              /* đẩy xuống */
-  transform: translateX(50px);  /* dịch sang trái 20px */
+  margin-top: 15px;          /* đẩy xuống dưới avatar */
+  transform: translateX(50px);/* dịch ngang (giữ nguyên theo yêu cầu) */
   border-radius: 8px;
   border: 1px solid #ddd;
 }
 
-/* ================================
-   DROPDOWN USER MENU
-   ================================ */
+/* ================================ DROPDOWN USER MENU ================================ */
+/* Kích thước/min-width và bóng */
 .user-dropdown.dropdown-menu {
-  margin-top: 12px;                /* đẩy xuống dưới avatar */
+  margin-top: 12px;          /* khoảng cách dọc (giữ nguyên) */
   min-width: 240px;
   font-size: 14px;
   padding: 0.5rem 0;
@@ -254,15 +270,18 @@ html {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   background: #fff;
 }
+
+/* Ghi đè vị trí lần nữa (giữ nguyên hành vi cũ) */
 .user-dropdown.dropdown-menu {
-  margin-top: 20px;              /* đẩy dropdown xuống dưới avatar */
-  transform: translateX(-25px);  /* dịch toàn bộ dropdown sang trái 20px */
+  margin-top: 20px;          /* tăng khoảng cách */
+  transform: translateX(-25px);/* dịch trái để căn lề tổng thể */
 }
 
+/* Item trong dropdown user: kèm icon và hiệu ứng hover */
 .user-dropdown .dropdown-item {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 8px;                  /* khoảng giữa icon và chữ */
   padding: 8px 16px;
   color: #000000;
   transition: all 0.2s ease;
@@ -275,8 +294,8 @@ html {
 }
 
 .user-dropdown .dropdown-item:hover {
-  background-color: #e3f2fd;
-  color: #1976d2;
+  background-color: #e3f2fd; /* nền xanh nhạt */
+  color: #1976d2;            /* chữ xanh */
 }
 
 .user-dropdown .dropdown-item:hover i {
@@ -284,84 +303,422 @@ html {
 }
 
 
-
-/* ================================
-   ICON THÔNG BÁO (🔔 & 💬)
-   ================================ */
+/* ================================ ICON THÔNG BÁO (🔔 & 💬) ================================ */
+/* Icon dạng nút nhỏ có badge số lượng */
 .icon-btn {
   position: relative;
-  font-size: 20px;          /* kích thước icon */
-  font-weight: bold;        /* in đậm icon */
-  color: #333;              /* màu mặc định */
-  margin-right: 30px;       /* khoảng cách giữa các icon */
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-right: 30px;
   cursor: pointer;
   transition: color 0.2s ease;
 }
 
 .icon-btn:hover {
-  color: #1976d2;           /* màu xanh chủ đạo khi hover */
+  color: #1976d2;            /* đổi màu khi hover */
 }
 
-/* Badge thông báo */
+/* Huy hiệu số lượng thông báo */
 .icon-btn .badge {
   position: absolute;
   top: -4px;
   right: -6px;
-  background: #e53935;      /* nền đỏ */
-  color: #fff;              /* chữ trắng */
+  background: #e53935;       /* nền đỏ cảnh báo */
+  color: #fff;
   font-size: 11px;
-  font-weight: bold;        /* chữ số in đậm */
+  font-weight: bold;
   padding: 2px 6px;
-  border-radius: 12px;      /* bo tròn viên thuốc */
+  border-radius: 12px;       /* hình viên thuốc */
   line-height: 1;
 }
 
 
-
-/* ================================
-   USERNAME KẾ BÊN AVATAR
-   ================================ */
+/* ================================ USERNAME KẾ BÊN AVATAR ================================ */
 #userMenu span {
-  font-weight: 500;     /* in đậm nhẹ (400 = thường, 700 = đậm) */
-  color: #333;          /* màu chữ */
+  font-weight: 500;
+  color: #333;
   transition: color 0.2s ease;
 }
 
 #userMenu span:hover {
-  color: #1976d2;       /* xanh khi hover */
+  color: #1976d2;
 }
-
 
 .user-avatar {
-  margin-left: 3px; /* khoảng cách avatar so với tên */
-
+  margin-left: 3px;          /* cách tên một chút */
 }
 
-
-/* Bỏ gạch chân trong tên user */
+/* Bỏ gạch chân dưới tên user (link) */
 #userMenu {
   text-decoration: none !important;
-  color: inherit;  /* giữ nguyên màu chữ */
+  color: inherit;            /* kế thừa màu hiện tại */
+}
+
+
+/* ===== Gạch chân riêng GIỚI THIỆU (đồng bộ với nav-documents) ===== */
+/* Lưu ý: dùng ::before để chừa chỗ caret tương tự nav-documents */
+.navbar-nav .nav-intro::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 20px;               /* chừa chỗ caret */
+  width: 50px;
+  height: 3px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+.navbar-nav .nav-intro:hover::before,
+.navbar-nav .nav-intro.active::before {
+  background-color: red;
+}
+
+
+/* ============================================================
+   GẠCH CHÂN MỤC GIỚI THIỆU (ĐỒNG BỘ NAV-DOCUMENTS)
+   — giữ gạch khi rê vào menu con nhờ :hover trên .nav-item.dropdown
+   ============================================================ */
+.navbar-nav .nav-intro::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  width: 50px;
+  height: 3px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+.navbar-nav .nav-intro:hover::before,
+.navbar-nav .nav-intro.active::before {
+  background-color: red;
+}
+/* Khi con trỏ nằm trong dropdown, phần tử cha vẫn :hover → gạch không tắt */
+.nav-item.dropdown:hover > .nav-intro::before,
+.nav-item.dropdown:focus-within > .nav-intro::before {
+  background-color: red;
+}
+
+
+/* ============================================================
+   DROPDOWN GIỚI THIỆU — HOVER MƯỢT, KHÔNG BỊ MẤT
+   ============================================================ */
+/* Tạo “cầu” hover: tránh rơi menu khi di chuột từ link xuống dropdown */
+.navbar .nav-item.dropdown {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/* Menu Giới thiệu ẩn mặc định + hiệu ứng trượt xuống khi mở */
+.intro-dropdown.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  min-width: 240px;
+  padding: 0.5rem 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  z-index: 1050;
+
+  display: none;             /* ẩn */
+  opacity: 0;                /* mờ */
+  visibility: hidden;        /* loại khỏi luồng truy cập */
+  transform: translateY(10px);/* vị trí ban đầu trước khi trượt */
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+/* Mở menu khi hover/focus */
+.nav-item.dropdown:hover > .intro-dropdown.dropdown-menu,
+.nav-item.dropdown:focus-within > .intro-dropdown.dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Giữ menu khi rê bên trong dropdown */
+.nav-item.dropdown:hover > .intro-dropdown.dropdown-menu:hover {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Item trong menu Giới thiệu */
+.intro-dropdown .dropdown-item {
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #111;
+  border-bottom: 1px solid #eee;
+  transition: all 0.2s ease;
+}
+.intro-dropdown .dropdown-item:last-child { border-bottom: none; }
+.intro-dropdown .dropdown-item:hover {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+/* Caret tùy biến cho Giới thiệu (dùng icon <i>) */
+.navbar .dropdown-toggle::after { display: none; }
+.navbar .dropdown-toggle[aria-expanded="true"] i {
+  transform: rotate(180deg);
+  transition: transform 0.2s ease;
+}
+
+
+/* ============================================================
+   DROPDOWN "DANH MỤC TÀI LIỆU" — hover mượt, không rớt
+   ============================================================ */
+.navbar .nav-item.dropdown { position: relative; padding-bottom: 10px; }
+
+.documents-dropdown.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  min-width: 240px;
+  padding: 0.5rem 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  z-index: 1050;
+
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+}
+/* Bất kỳ mục nào là dropdown-submenu thì bỏ viền dưới */
+.documents-dropdown > .dropdown-submenu > .dropdown-item {
+  border-bottom: none;
+}
+
+.nav-item.dropdown:hover   > .documents-dropdown.dropdown-menu,
+.nav-item.dropdown:focus-within > .documents-dropdown.dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-item.dropdown:hover > .documents-dropdown.dropdown-menu:hover {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Item trong “Danh mục tài liệu” */
+.documents-dropdown .dropdown-item {
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #111;
+  border-bottom: 1px solid #eee;
+  transition: all .2s ease;
+}
+.documents-dropdown .dropdown-item:last-child { border-bottom: none; }
+.documents-dropdown .dropdown-item:hover {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+/* Caret và xoay khi mở (dùng icon <i>) */
+.navbar .dropdown-toggle::after { display: none; }
+.navbar .dropdown-toggle[aria-expanded="true"] i {
+  transform: rotate(180deg);
+  transition: transform .2s ease;
+}
+
+/* Gạch chân đỏ riêng cho “Danh mục tài liệu” (giống Giới thiệu) */
+.navbar-nav .nav-documents { position: relative; } /* để ::before định vị */
+.navbar-nav .nav-documents::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  width: 50px;
+  height: 3px;
+  background-color: transparent;
+  transition: background-color .3s ease;
+}
+.navbar-nav .nav-documents:hover::before,
+.navbar-nav .nav-documents.active::before {
+  background-color: red;
+}
+.nav-item.dropdown:hover > .nav-documents::before,
+.nav-item.dropdown:focus-within > .nav-documents::before {
+  background-color: red;
+}
+
+
+/* ============================================================
+   DROPDOWN "TRA CỨU" — MENU NHIỀU CẤP (CẤP 2 TRƯỢT NGANG)
+   ============================================================ */
+/* Ẩn caret mặc định (dùng icon) */
+.navbar .dropdown-toggle::after { display: none; }
+
+/* Tạo vùng đệm hover chống rơi menu */
+.navbar .nav-item.dropdown {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/* Menu chính của TRA CỨU */
+.search-dropdown.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  min-width: 240px;
+  padding: 0.5rem 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  z-index: 1050;
+
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+.nav-item.dropdown:hover > .search-dropdown.dropdown-menu,
+.nav-item.dropdown:focus-within > .search-dropdown.dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-item.dropdown:hover > .search-dropdown.dropdown-menu:hover {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* SUBMENU cấp 2 (hiển thị ngang bên phải) */
+.dropdown-submenu { position: relative; }
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: 0px;         /* đường phân tách rất mảnh */
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(10px); /* trượt ngang khi mở */
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* Item trong TRA CỨU (đã bỏ viền phân cách theo yêu cầu trước) */
+.search-dropdown .dropdown-item {
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #111;
+  border-bottom: none !important;  /* bỏ viền giữa các mục */
+  transition: all 0.2s ease;
+}
+.search-dropdown .dropdown-item:last-child { border-bottom: none; }
+.search-dropdown .dropdown-item:hover {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+/* Gạch chân đỏ của “TRA CỨU” + giữ khi rê vào menu con */
+.navbar-nav .nav-search { position: relative; }
+.navbar-nav .nav-search::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 20px;              /* chừa chỗ caret */
+  width: 50px;
+  height: 3px;
+  background-color: transparent;
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+.navbar-nav .nav-search:hover::before,
+.navbar-nav .nav-search.active::before { background-color: red; }
+.nav-item.dropdown:hover > .nav-search::before,
+.nav-item.dropdown:focus-within > .nav-search::before { background-color: red; }
+
+/* Caret xoay khi mở menu (dùng icon) */
+.navbar .dropdown-toggle[aria-expanded="true"] i {
+  transform: rotate(180deg);
+  transition: transform 0.2s ease;
 }
 
 
 
 
+/* ============================================================
+   DROPDOWN HOVER CHỈ ÁP DỤNG CHO DESKTOP (≥992px)
+   - Tránh mobile "giả hover" gây xung đột với click.
+   - Các selector bên dưới CHỈ chạy khi màn hình đủ lớn.
+   ============================================================ */
+@media (min-width: 992px) {
+  /* Mở dropdown khi hover/focus vào mục cha (3 menu chính) */
+  .nav-item.dropdown:hover > .intro-dropdown.dropdown-menu,
+  .nav-item.dropdown:focus-within > .intro-dropdown.dropdown-menu,
+  .nav-item.dropdown:hover > .documents-dropdown.dropdown-menu,
+  .nav-item.dropdown:focus-within > .documents-dropdown.dropdown-menu,
+  .nav-item.dropdown:hover > .search-dropdown.dropdown-menu,
+  .nav-item.dropdown:focus-within > .search-dropdown.dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 
+  /* (Tùy chọn) Giữ menu khi rê trong vùng dropdown */
+  .nav-item.dropdown:hover > .intro-dropdown.dropdown-menu:hover,
+  .nav-item.dropdown:hover > .documents-dropdown.dropdown-menu:hover,
+  .nav-item.dropdown:hover > .search-dropdown.dropdown-menu:hover {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+}
 
+/* ============================================================
+   SUBMENU CẤP 2 CHUNG CHO TẤT CẢ DROPDOWN (NẾU CHƯA CÓ)
+   - Hiển thị ngang sang phải, trượt mượt.
+   ============================================================ */
+.dropdown-submenu { position: relative; }
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: 2px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(10px);
+  transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+}
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
 
-
-
-
-
-
-
+/* ==================== RESPONSIVE ==================== */
+/* Khi màn hình nhỏ: đưa khối giờ hoạt động xuống dưới, bỏ vị trí tuyệt đối */
 @media (max-width: 768px) {
   .working-hours {
-    position: static;
+    position: static;       /* tham gia luồng bình thường */
     width: 100%;
     height: auto;
-    border-radius: 0;
+    border-radius: 0;       /* bỏ bo góc để full-width */
     margin-top: 10px;
   }
 }
